@@ -11,20 +11,39 @@
                     {{ session('message') }}
                 </div>
             @endif
-
-            <div class="col-md-6">
-                <label class="form-label">إسم الموقع</label>
-                <input type="text" class="form-control" placeholder="logo" wire:model='settings.logo' />
-                @error('settings.logo')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+              <div class="col-md-6 row" >
+                <div class="col-md-6">
+                    <label class="form-label">شعار الموقع</label>
+                    <input type="file" class="form-control" placeholder="logo1" wire:model='logo1' />
+                    @error('logo1')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div wire:loading wire:target="logo1">Uploading...</div>
+                    @if ($logo1)
+                        <img width="80" height="80" src="{{ $logo1->temporaryUrl() }}">
+                    @else
+                        <img width="80" height="80" src="{{ asset('uplods/admin/settings/' .$settings->logo)}}">
+                    @endif
+                </div>
             </div>
-            <div class="col-md-6">
-                <label class="form-label">إسم الموقع</label>
-                <input type="text" class="form-control" placeholder="icon" wire:model='settings.icon' />
-                @error('settings.icon')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+            <div class="col-md-6 row" >
+                <div class="col-md-6">
+                    <label class="form-label">ايقونة الموقع</label>
+                    <input type="file" class="form-control" placeholder="icon1" wire:model='icon1' />
+                    @error('icon1')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <div wire:loading wire:target="icon1">Uploading...</div>
+                    @if ($icon1)
+                        <img width="80" height="80" src="{{ $icon1->temporaryUrl() }}">
+                    @else
+                        <img width="80" height="80" src="{{ asset('uplods/admin/settings/' .$settings->icon) }}">
+                    @endif
+                </div>
             </div>
             <div class="col-md-6">
                 <label class="form-label">إسم الموقع</label>

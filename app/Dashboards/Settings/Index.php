@@ -4,10 +4,12 @@ namespace App\Dashboards\Settings;
 
 use Livewire\Component;
 use App\Models\Setting;
+use Livewire\WithFileUploads;
 
 class Index extends Component
 {
-    public $settings;
+    use WithFileUploads;
+    public $settings, $logo1, $icon1;
 
     public function mount()
     {
@@ -25,15 +27,30 @@ class Index extends Component
             'settings.twitter' => 'nullable|url',
             'settings.linkedin' => 'nullable|url',
             'settings.instagram' => 'nullable|url',
-            'settings.logo' => 'nullable|url',
-            'settings.icon' => 'nullable|url',
         ];
     }
 
     public function submit()
     {
-        $this->validate();
-        $this->settings->save();
+        $data = $this->validate(); 
+        if ($this->logo1) {
+            unlink('uplods/admin/settings/' .$this->settings->logo);
+            $imageName = 'logo' . '.' . $this->logo1->getClientOriginalExtension();
+            $this->logo1->storeAs('admin/settings/', $imageName, 'public');
+            $data['logo'] =  $imageName;
+        } else {
+            unset($data['logo']);
+        }
+        if ($this->icon1) {
+            unlink('uplods/admin/settings/' .$this->settings->icon);
+            $imageName = 'icon' . '.' . $this->icon1->getClientOriginalExtension();
+            $this->icon1->storeAs('admin/settings/', $imageName, 'public');
+            $data['icon'] =  $imageName;
+        } else {
+            unset($data['icon']);
+        }
+        // dd($data['settings.icon']);
+        $this->settings->update($data);
         session()->flash('message', 'Settings Updated Successfully');
     }
 
