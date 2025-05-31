@@ -34,7 +34,7 @@ class Index extends Component
     {
         $data = $this->validate(); 
         if ($this->logo1) {
-            unlink('uplods/admin/settings/' .$this->settings->logo);
+            if($this->settings->logo){unlink('uplods/admin/settings/' .$this->settings->logo);}
             $imageName = 'logo' . '.' . $this->logo1->getClientOriginalExtension();
             $this->logo1->storeAs('admin/settings/', $imageName, 'public');
             $data['logo'] =  $imageName;
@@ -42,7 +42,7 @@ class Index extends Component
             unset($data['logo']);
         }
         if ($this->icon1) {
-            unlink('uplods/admin/settings/' .$this->settings->icon);
+            if($this->settings->logo){unlink('uplods/admin/settings/' .$this->settings->icon);}
             $imageName = 'icon' . '.' . $this->icon1->getClientOriginalExtension();
             $this->icon1->storeAs('admin/settings/', $imageName, 'public');
             $data['icon'] =  $imageName;
