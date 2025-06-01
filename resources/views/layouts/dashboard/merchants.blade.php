@@ -13,7 +13,7 @@
 </head>
 
 <body class="">
-    @include('partials.dashboard._body')
+    @include('partials.dashboard._merchants')
     @livewireScripts
 </body>
 

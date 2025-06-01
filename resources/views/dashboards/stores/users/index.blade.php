@@ -10,7 +10,7 @@
                 <thead>
                     <tr>
                         <th>الإسم</th>
-                        <th>إسم المستخدم</th>
+                        <th>الإسم المرجعي</th>
                         <th>البريد الالكتروني</th>
                         <th>رقم الهاتف</th>
                         <th>الدور</th>
@@ -29,7 +29,9 @@
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->username }}</h6>
+                                    <a href="#" wire:click.prevent="showUser({{ $user->user_id }})" style="cursor: pointer; color: blue;">
+                                        <h6>{{ $user->user_id  ? $user->referrer->name : ''  }}</h6>
+                                    </a>
                                 </div>
                             </td>
                             <td>
@@ -49,12 +51,13 @@
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->last_seen }}</h6>
+                                    <h6>{{ $user->last_seen  ? \Carbon\Carbon::parse($user->last_seen)->diffForHumans():'لم يقم بالدخول' }}</h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
-                                    <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
+                                    @can('update', $user)
+                                        <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit" href="#">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none"
@@ -73,6 +76,8 @@
                                             </svg>
                                         </span>
                                     </a>
+                                    @endcan
+                                    
                                     <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-placement="top"
                                         title="" data-original-title="Delete" href="#">
                                         <span class="btn-inner">

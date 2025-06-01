@@ -14,8 +14,8 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         Permission::firstOrCreate([
-            'name'      => 'Browse admin',
-            'key'       => 'browse_admin',
+            'name'      => 'merchants',
+            'key'       => 'merchants',
             'table_name' => null,
         ]);
 
@@ -34,5 +34,6 @@ class PermissionSeeder extends Seeder
         Permission::generateFor('permissions');
         Permission::generateFor('roles');
         Permission::generateFor('users');
+        Permission::generateFor('settings');
     }
 }

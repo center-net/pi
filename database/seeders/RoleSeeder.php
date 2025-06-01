@@ -51,8 +51,12 @@ class RoleSeeder extends Seeder
         ]);
 
         $permission_administrator = Permission::where('key','!=','banned')->pluck('id')->toArray();
+        $permission_vendor = Permission::where('key','!=','administrator')->pluck('id')->toArray();
 
         $admin_role = Role::where('key','admin')->first();
         $admin_role->permission()->sync($permission_administrator);
+
+        $vendor_role = Role::where('key','vendor')->first();
+        $vendor_role->permission()->sync($permission_vendor);
     }
 }

@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique()->index();
-            $table->string('Reference')->nullable();
             $table->string('email')->unique();
             $table->string('mobile')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('photo')->nullable();
             $table->string('password');
+            $table->foreignId('user_id')->nullable()->constrained('users','id')->onDelete('cascade');
             $table->foreignId('role_id')->constrained('roles','id')->onDelete('cascade');
             $table->timestamp('last_seen')->nullable();
             $table->rememberToken();

@@ -13,7 +13,7 @@ class SettingPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->hasPermission('browse_settings');
     }
 
     /**
@@ -21,7 +21,7 @@ class SettingPolicy
      */
     public function view(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('read_settings');
     }
 
     /**
@@ -29,7 +29,7 @@ class SettingPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->hasPermission('add_settings');
     }
 
     /**
@@ -37,7 +37,7 @@ class SettingPolicy
      */
     public function update(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('edit_settings');
     }
 
     /**
@@ -45,7 +45,7 @@ class SettingPolicy
      */
     public function delete(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('delete_settings');
     }
 
     /**
@@ -53,7 +53,7 @@ class SettingPolicy
      */
     public function restore(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('restore_settings');
     }
 
     /**
@@ -61,6 +61,6 @@ class SettingPolicy
      */
     public function forceDelete(User $user, Setting $setting): bool
     {
-        return false;
+        return $user->hasPermission('forceDelete_settings');
     }
 }

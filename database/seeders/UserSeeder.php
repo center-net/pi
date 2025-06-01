@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $role_id = Role::where('key','admin')->first()->id;
+        $role_id1 = Role::where('key','vendor')->first()->id;
+        $role_id2 = Role::where('key','banned')->first()->id;
         User::firstOrCreate([
             'name'              => 'المسؤول',
             'username'          => 'admin',
@@ -64,7 +66,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('123123'), // password
             'remember_token'    => Str::random(10),
-            'role_id'           => $role_id,
+            'role_id'           => $role_id1,
             'last_seen'         => null,
         ]);
 
@@ -77,7 +79,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('123123'), // password
             'remember_token'    => Str::random(10),
-            'role_id'           => $role_id,
+            'role_id'           => $role_id1,
             'last_seen'         => null,
         ]);
 
@@ -90,7 +92,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('123123'), // password
             'remember_token'    => Str::random(10),
-            'role_id'           => $role_id,
+            'role_id'           => $role_id2,
             'last_seen'         => null,
         ]);
     }

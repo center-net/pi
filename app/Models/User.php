@@ -27,6 +27,11 @@ class User extends Authenticatable
         'role_id',
         'last_seen',
     ];
+    protected $dates = [
+        'last_seen',
+        'created_at',
+        'updated_at'
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -56,19 +61,38 @@ class User extends Authenticatable
         $this->attributes['username'] = strtolower($value);
     }
 
+    public function findForPassport($username)
+    {
+        return $this->where('username', $username)->first();
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
 
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'user_id');
+    }
+
+    public function getReferralsCountAttribute()
+    {
+        return $this->referrals()->count();
+    }
 
     public function hasPermission($key)
     {
         return $this->role->permission->contains('key', $key);
     }
 
-    public function isOnline(){
-        return Cache::has('user-is-online' .$this->id);
+    public function isOnline()
+    {
+        return Cache::has('user-is-online' . $this->id);
     }
-
 }

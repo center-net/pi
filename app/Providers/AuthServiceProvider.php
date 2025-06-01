@@ -35,8 +35,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('browse_admin', fn(User $user) => $user->hasPermission('browse_admin'));
         Gate::define('administrator', fn(User $user) => $user->hasPermission('administrator'));
+        Gate::define('merchants', fn(User $user) => $user->hasPermission('merchants'));
         Gate::define('banned', fn(User $user) => $user->hasPermission('banned'));
     }
 }

@@ -17,8 +17,13 @@ class Index extends Component
         $this->resetPage();
     }
 
+    public function showUser(User $user)
+    {
+        dd($user->name);
+    }
+
     public function render()
     {
-        return view('dashboards.stores.users.index',['users' => User::where('name', 'like', '%' . $this->search . '%')->paginate(10)]);
+        return view('dashboards.stores.users.index', ['users' => User::where('name', 'like', '%' . $this->search . '%')->paginate(10)]);
     }
 }
