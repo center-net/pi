@@ -33,12 +33,18 @@ class Login extends Component
                 'username' => __('auth.failed'),
             ]);
         }
-
-        auth()->user()->update([
-            'last_seen' => now()
-        ]);
-
-        return redirect()->intended('/admin');
+        if (!Auth::check() || !Auth::user()->can('banned')) {
+            auth()->user()->update([
+                'last_seen' => now()
+            ]);
+    
+            return redirect()->intended('/admin');
+        }
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        return redirect()->route('login');
+       
     }
 
     public function render()

@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>الإسم</th>
+                        <th>الدولة</th>
                         <th>الإسم المرجعي</th>
                         <th>البريد الالكتروني</th>
                         <th>رقم الهاتف</th>
@@ -25,6 +26,11 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <h6>{{ $user->name }}</h6>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <h6>{{ $user->country->name }}</h6>
                                 </div>
                             </td>
                             <td>

@@ -91,6 +91,16 @@ class User extends Authenticatable
         return $this->role->permission->contains('key', $key);
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
     public function isOnline()
     {
         return Cache::has('user-is-online' . $this->id);

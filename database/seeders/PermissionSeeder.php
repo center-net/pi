@@ -35,5 +35,6 @@ class PermissionSeeder extends Seeder
         Permission::generateFor('roles');
         Permission::generateFor('users');
         Permission::generateFor('settings');
+        Permission::generateFor('countries');
     }
 }

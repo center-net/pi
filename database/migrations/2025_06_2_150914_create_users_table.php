@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('photo')->nullable();
             $table->string('password');
+            $table->foreignId('country_id')->constrained('countries');
+            $table->foreignId('province_id')->constrained('provinces');
             $table->foreignId('user_id')->nullable()->constrained('users','id')->onDelete('cascade');
             $table->foreignId('role_id')->constrained('roles','id')->onDelete('cascade');
             $table->timestamp('last_seen')->nullable();
