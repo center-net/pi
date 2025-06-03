@@ -1,4 +1,3 @@
-@include('partials.dashboard._body_sidebar')
 <main class="main-content">
     <div class="position-relative">
         @include('partials.dashboard._body_header')

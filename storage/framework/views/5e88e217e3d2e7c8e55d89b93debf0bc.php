@@ -1,5 +1,4 @@
-@extends('layouts.dashboard.merchants')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="row">
     <div class="col-lg-12">
        <div class="card">
@@ -7,16 +6,16 @@
              <div class="d-flex flex-wrap align-items-center justify-content-between">
                 <div class="d-flex flex-wrap align-items-center">
                    <div class="profile-img position-relative me-3 mb-3 mb-lg-0">
-                      <img src="{{ $profileImage ?? asset('images/avatars/01.png')}}" alt="User-Profile" class="theme-color-default-img img-fluid rounded-pill avatar-100">
-                      <img src="{{asset('images/avatars/avtar_1.png')}}" alt="User-Profile" class="theme-color-purple-img img-fluid rounded-pill avatar-100">
-                      <img src="{{asset('images/avatars/avtar_2.png')}}" alt="User-Profile" class="theme-color-blue-img img-fluid rounded-pill avatar-100">
-                      <img src="{{asset('images/avatars/avtar_4.png')}}" alt="User-Profile" class="theme-color-green-img img-fluid rounded-pill avatar-100">
-                      <img src="{{asset('images/avatars/avtar_5.png')}}" alt="User-Profile" class="theme-color-yellow-img img-fluid rounded-pill avatar-100">
-                      <img src="{{asset('images/avatars/avtar_3.png')}}" alt="User-Profile" class="theme-color-pink-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e($profileImage ?? asset('images/avatars/01.png')); ?>" alt="User-Profile" class="theme-color-default-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e(asset('images/avatars/avtar_1.png')); ?>" alt="User-Profile" class="theme-color-purple-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e(asset('images/avatars/avtar_2.png')); ?>" alt="User-Profile" class="theme-color-blue-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e(asset('images/avatars/avtar_4.png')); ?>" alt="User-Profile" class="theme-color-green-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e(asset('images/avatars/avtar_5.png')); ?>" alt="User-Profile" class="theme-color-yellow-img img-fluid rounded-pill avatar-100">
+                      <img src="<?php echo e(asset('images/avatars/avtar_3.png')); ?>" alt="User-Profile" class="theme-color-pink-img img-fluid rounded-pill avatar-100">
                    </div>
                    <div class="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
-                      <h4 class="me-2 h4">{{ $data->full_name ?? 'Austin Robertson'  }}</h4>
-                      <span class="text-capitalize"> - {{ str_replace('_',' ',auth()->user()->user_type) ?? 'Marketing Administrator' }}</span>
+                      <h4 class="me-2 h4"><?php echo e($data->full_name ?? 'Austin Robertson'); ?></h4>
+                      <span class="text-capitalize"> - <?php echo e(str_replace('_',' ',auth()->user()->user_type) ?? 'Marketing Administrator'); ?></span>
                    </div>
                 </div>
                 <ul class="d-flex nav nav-pills mb-0 text-center profile-tab" data-toggle="slider-tab" id="profile-pills-tab" role="tablist">
@@ -74,32 +73,32 @@
        </div>
        <div class="card-body">
           <div class="d-grid gap-card grid-cols-3">
-             <a data-fslightbox="gallery" href="{{asset('images/icons/04.png')}}">
-                <img src="{{asset('images/icons/04.png')}}" class="img-fluid bg-soft-info rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/icons/04.png')); ?>">
+                <img src="<?php echo e(asset('images/icons/04.png')); ?>" class="img-fluid bg-soft-info rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/shapes/02.png')}}">
-                <img src="{{asset('images/shapes/02.png')}}" class="img-fluid bg-soft-primary rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/shapes/02.png')); ?>">
+                <img src="<?php echo e(asset('images/shapes/02.png')); ?>" class="img-fluid bg-soft-primary rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/icons/08.png')}}">
-                <img src="{{asset('images/icons/08.png')}}" class="img-fluid bg-soft-info rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/icons/08.png')); ?>">
+                <img src="<?php echo e(asset('images/icons/08.png')); ?>" class="img-fluid bg-soft-info rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/shapes/04.png')}}">
-                <img src="{{asset('images/shapes/04.png')}}" class="img-fluid bg-soft-primary rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/shapes/04.png')); ?>">
+                <img src="<?php echo e(asset('images/shapes/04.png')); ?>" class="img-fluid bg-soft-primary rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/icons/02.png')}}">
-                <img src="{{asset('images/icons/02.png')}}" class="img-fluid bg-soft-warning rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/icons/02.png')); ?>">
+                <img src="<?php echo e(asset('images/icons/02.png')); ?>" class="img-fluid bg-soft-warning rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/shapes/06.png')}}">
-                <img src="{{asset('images/shapes/06.png')}}" class="img-fluid bg-soft-primary rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/shapes/06.png')); ?>">
+                <img src="<?php echo e(asset('images/shapes/06.png')); ?>" class="img-fluid bg-soft-primary rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/icons/05.png')}}">
-                <img src="{{asset('images/icons/05.png')}}" class="img-fluid bg-soft-danger rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/icons/05.png')); ?>">
+                <img src="<?php echo e(asset('images/icons/05.png')); ?>" class="img-fluid bg-soft-danger rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/shapes/04.png')}}">
-                <img src="{{asset('images/shapes/04.png')}}" class="img-fluid bg-soft-primary rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/shapes/04.png')); ?>">
+                <img src="<?php echo e(asset('images/shapes/04.png')); ?>" class="img-fluid bg-soft-primary rounded" alt="profile-image">
              </a>
-             <a data-fslightbox="gallery" href="{{asset('images/icons/01.png')}}">
-                <img src="{{asset('images/icons/01.png')}}" class="img-fluid bg-soft-success rounded" alt="profile-image">
+             <a data-fslightbox="gallery" href="<?php echo e(asset('images/icons/01.png')); ?>">
+                <img src="<?php echo e(asset('images/icons/01.png')); ?>" class="img-fluid bg-soft-success rounded" alt="profile-image">
              </a>
           </div>
        </div>
@@ -113,7 +112,7 @@
        <div class="card-body">
           <div class="twit-feed">
              <div class="d-flex align-items-center mb-2">
-                <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-danger ps-2" src="{{asset('images/icons/03.png')}}" alt="">
+                <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-danger ps-2" src="<?php echo e(asset('images/icons/03.png')); ?>" alt="">
                 <div class="media-support-info">
                    <h6 class="mb-0">Figma Community</h6>
                    <p class="mb-0">@figma20
@@ -137,7 +136,7 @@
           <hr class="my-4">
           <div class="twit-feed">
              <div class="d-flex align-items-center mb-2">
-                <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-primary" src="{{asset('images/icons/04.png')}}" alt="">
+                <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-primary" src="<?php echo e(asset('images/icons/04.png')); ?>" alt="">
                 <div class="media-support-info">
                    <h6 class="mb-0">Flutter</h6>
                    <p class="mb-0">@jane59
@@ -161,7 +160,7 @@
           <hr class="my-4">
           <div class="twit-feed">
              <div class="d-flex align-items-center mb-2">
-                   <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-warning pt-2" src="{{asset('images/icons/02.png')}}" alt="">
+                   <img class="rounded-pill img-fluid avatar-50 me-3 p-1 bg-soft-warning pt-2" src="<?php echo e(asset('images/icons/02.png')); ?>" alt="">
                 <div class="mt-2">
                    <h6 class="mb-0">Blender</h6>
                    <p class="mb-0">@blender59
@@ -193,7 +192,7 @@
                 <div class="header-title">
                    <div class="d-flex flex-wrap">
                       <div class="media-support-user-img me-3">
-                         <img class="rounded-pill img-fluid avatar-60 bg-soft-danger p-1 ps-2" src="{{asset('images/avatars/02.png')}}" alt="">
+                         <img class="rounded-pill img-fluid avatar-60 bg-soft-danger p-1 ps-2" src="<?php echo e(asset('images/avatars/02.png')); ?>" alt="">
                       </div>
                       <div class="media-support-info mt-2">
                          <h5 class="mb-0">Anna Sthesia</h5>
@@ -214,7 +213,7 @@
              </div>
              <div class="card-body p-0">
                 <div class="user-post">
-                   <a href="javascript:void(0);"><img src="{{asset('images/pages/02-page')}}.png" alt="post-image" class="img-fluid"></a>
+                   <a href="javascript:void(0);"><img src="<?php echo e(asset('images/pages/02-page')); ?>.png" alt="post-image" class="img-fluid"></a>
                 </div>
                 <div class="comment-area p-3">
                    <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -247,7 +246,7 @@
                    <ul class="list-inline p-0 m-0">
                       <li class="mb-2">
                          <div class="d-flex">
-                            <img src="{{asset('images/avatars/03.png')}}" alt="userimg" class="avatar-50 p-1 pt-2 bg-soft-primary rounded-pill img-fluid">
+                            <img src="<?php echo e(asset('images/avatars/03.png')); ?>" alt="userimg" class="avatar-50 p-1 pt-2 bg-soft-primary rounded-pill img-fluid">
                             <div class="ms-3">
                                <h6 class="mb-1">Monty Carlo</h6>
                                <p class="mb-1">Lorem ipsum dolor sit amet</p>
@@ -272,7 +271,7 @@
                       </li>
                       <li>
                          <div class="d-flex">
-                            <img src="{{asset('images/avatars/04.png')}}" alt="userimg" class="avatar-50 p-1 bg-soft-danger rounded-pill img-fluid">
+                            <img src="<?php echo e(asset('images/avatars/04.png')); ?>" alt="userimg" class="avatar-50 p-1 bg-soft-danger rounded-pill img-fluid">
                             <div class="ms-3">
                                <h6 class="mb-1">Paul Molive</h6>
                                <p class="mb-1">Lorem ipsum dolor sit amet</p>
@@ -319,7 +318,7 @@
                 <div class="header-title">
                    <div class="d-flex flex-wrap">
                       <div class="media-support-user-img me-3">
-                         <img class="rounded-pill img-fluid avatar-60 p-1 bg-soft-info" src="{{asset('images/avatars/05.png')}}" alt="">
+                         <img class="rounded-pill img-fluid avatar-60 p-1 bg-soft-info" src="<?php echo e(asset('images/avatars/05.png')); ?>" alt="">
                       </div>
                       <div class="media-support-info mt-2">
                          <h5 class="mb-0">Wade Warren</h5>
@@ -462,7 +461,7 @@
              <div class="card-body">
                 <ul class="list-inline m-0 p-0">
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/01.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/01.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Paul Molive</h6>
                          <p class="mb-0">Web Designer</p>
@@ -478,7 +477,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/05.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/05.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Paul Molive</h6>
                          <p class="mb-0">trainee</p>
@@ -494,7 +493,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/02.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/02.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Anna Mull</h6>
                          <p class="mb-0">Web Developer</p>
@@ -510,7 +509,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/03.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/03.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Paige Turner</h6>
                          <p class="mb-0">trainee</p>
@@ -526,7 +525,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/04.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/04.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Barb Ackue</h6>
                          <p class="mb-0">Web Designer</p>
@@ -542,7 +541,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/05.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/05.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Greta Life</h6>
                          <p class="mb-0">Tester</p>
@@ -558,7 +557,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/03.png')}}" alt="story-img" class="rounded-pill avatar-40">                              <div class="ms-3 flex-grow-1">
+                      <img src="<?php echo e(asset('images/avatars/03.png')); ?>" alt="story-img" class="rounded-pill avatar-40">                              <div class="ms-3 flex-grow-1">
                          <h6>Ira Membrit</h6>
                          <p class="mb-0">Android Developer</p>
                       </div>
@@ -573,7 +572,7 @@
                       </div>
                    </li>
                    <li class="d-flex mb-4 align-items-center">
-                      <img src="{{asset('images/avatars/02.png')}}" alt="story-img" class="rounded-pill avatar-40">
+                      <img src="<?php echo e(asset('images/avatars/02.png')); ?>" alt="story-img" class="rounded-pill avatar-40">
                       <div class="ms-3 flex-grow-1">
                          <h6>Pete Sariya</h6>
                          <p class="mb-0">Web Designer</p>
@@ -602,10 +601,10 @@
              <div class="card-body">
                 <div class="text-center">
                    <div class="user-profile">
-                      <img src="{{asset('images/avatars/01.png')}}" alt="profile-img" class="rounded-pill avatar-130 img-fluid">
+                      <img src="<?php echo e(asset('images/avatars/01.png')); ?>" alt="profile-img" class="rounded-pill avatar-130 img-fluid">
                    </div>
                    <div class="mt-3">
-                      <h3 class="d-inline-block">{{ auth()->user()->name ?? 'Austin Robertson'  }}</h3>
+                      <h3 class="d-inline-block"><?php echo e(auth()->user()->name ?? 'Austin Robertson'); ?></h3>
                       <p class="d-inline-block pl-3"> - Web developer</p>
                       <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                    </div>
@@ -670,21 +669,21 @@
        <div class="card-body">
           <ul class="list-inline m-0 p-0">
              <li class="d-flex mb-4 align-items-center active">
-                <img src="{{asset('images/icons/06.png')}}" alt="story-img" class="rounded-pill avatar-70 p-1 border bg-soft-light img-fluid">
+                <img src="<?php echo e(asset('images/icons/06.png')); ?>" alt="story-img" class="rounded-pill avatar-70 p-1 border bg-soft-light img-fluid">
                 <div class="ms-3">
                    <h5>Web Design</h5>
                    <p class="mb-0">1 hour ago</p>
                 </div>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <img src="{{asset('images/icons/03.png')}}" alt="story-img" class="rounded-pill avatar-70 p-1 border img-fluid bg-soft-danger">
+                <img src="<?php echo e(asset('images/icons/03.png')); ?>" alt="story-img" class="rounded-pill avatar-70 p-1 border img-fluid bg-soft-danger">
                 <div class="ms-3">
                    <h5>App Design</h5>
                    <p class="mb-0">4 hour ago</p>
                 </div>
              </li>
              <li class="d-flex align-items-center">
-                <img src="{{asset('images/icons/07.png')}}" alt="story-img" class="rounded-pill avatar-70 p-1 border bg-soft-primary img-fluid">
+                <img src="<?php echo e(asset('images/icons/07.png')); ?>" alt="story-img" class="rounded-pill avatar-70 p-1 border bg-soft-primary img-fluid">
                 <div class="ms-3">
                    <h5>Abstract Design</h5>
                    <p class="mb-0">9 hour ago</p>
@@ -702,7 +701,7 @@
        <div class="card-body">
           <ul class="list-inline m-0 p-0">
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-warning rounded-pill"><img src="{{asset('images/icons/05.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-warning rounded-pill"><img src="<?php echo e(asset('images/icons/05.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Paul Molive</h6>
                    <p class="mb-0">4 mutual friends</p>
@@ -719,7 +718,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-danger rounded-pill"><img src="{{asset('images/icons/03.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-danger rounded-pill"><img src="<?php echo e(asset('images/icons/03.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Robert Fox</h6>
                    <p class="mb-0">4 mutual friends</p>
@@ -736,7 +735,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-dark rounded-pill"><img src="{{asset('images/icons/06.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-dark rounded-pill"><img src="<?php echo e(asset('images/icons/06.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Jenny Wilson</h6>
                    <p class="mb-0">6 mutual friends</p>
@@ -753,7 +752,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-primary rounded-pill"><img src="{{asset('images/icons/07.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-primary rounded-pill"><img src="<?php echo e(asset('images/icons/07.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Cody Fisher</h6>
                    <p class="mb-0">8 mutual friends</p>
@@ -770,7 +769,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-info rounded-pill"><img src="{{asset('images/icons/04.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-info rounded-pill"><img src="<?php echo e(asset('images/icons/04.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Bessie Cooper</h6>
                    <p class="mb-0">1 mutual friends</p>
@@ -787,7 +786,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-warning rounded-pill"><img src="{{asset('images/icons/02.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-warning rounded-pill"><img src="<?php echo e(asset('images/icons/02.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Wade Warren</h6>
                    <p class="mb-0">3 mutual friends</p>
@@ -804,7 +803,7 @@
                 </a>
              </li>
              <li class="d-flex mb-4 align-items-center">
-                <div class="img-fluid bg-soft-success rounded-pill"><img src="{{asset('images/icons/01.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-success rounded-pill"><img src="<?php echo e(asset('images/icons/01.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Guy Hawkins</h6>
                    <p class="mb-0">12 mutual friends</p>
@@ -821,7 +820,7 @@
                 </a>
              </li>
              <li class="d-flex align-items-center">
-                <div class="img-fluid bg-soft-info rounded-pill"><img src="{{asset('images/icons/08.png')}}" alt="story-img" class="rounded-pill avatar-40"></div>
+                <div class="img-fluid bg-soft-info rounded-pill"><img src="<?php echo e(asset('images/icons/08.png')); ?>" alt="story-img" class="rounded-pill avatar-40"></div>
                 <div class="ms-3 flex-grow-1">
                    <h6>Floyd Miles</h6>
                    <p class="mb-0">2 mutual friends</p>
@@ -843,4 +842,5 @@
     </div>
  </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.dashboard.merchants', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\pi\resources\views/merchants/dashboard.blade.php ENDPATH**/ ?>
