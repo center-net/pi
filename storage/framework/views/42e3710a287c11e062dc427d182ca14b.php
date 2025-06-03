@@ -1,0 +1,1 @@
+<?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/vertical-nav.blade.php ENDPATH**/ ?>
