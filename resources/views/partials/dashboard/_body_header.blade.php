@@ -1,7 +1,7 @@
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
   <div class="container-fluid navbar-inner">
     <a href="{{route('admin.dashboard')}}" class="navbar-brand">
-    <img src="{{ asset('uplods/admin/settings/' .$settings->logo)}}" alt="">
+    <img width="30" height="30" src="{{ asset('uplods/admin/settings/' .$settings->logo)}}" alt="">
       <h4 class="logo-title">{{$settings->name}}</h4>
     </a>
     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
