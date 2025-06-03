@@ -1,8 +1,8 @@
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
   <div class="container-fluid navbar-inner">
-    <a href="<?php echo e(route('admin.dashboard')); ?>" class="navbar-brand">
-    <img width="30" height="30" src="<?php echo e(asset('uplods/admin/settings/' .$settings->logo)); ?>" alt="">
-      <h4 class="logo-title"><?php echo e($settings->name); ?></h4>
+    <a href="{{route('admin.dashboard')}}" class="navbar-brand">
+    <img width="30" height="30" src="{{ asset('uplods/admin/settings/' .$settings->logo)}}" alt="">
+      <h4 class="logo-title">{{$settings->name}}</h4>
     </a>
     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
       <i class="icon">
@@ -55,7 +55,7 @@
               <div class="card-body p-0">
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
-                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/01.png')); ?>"
+                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/01.png')}}"
                       alt="">
                     <div class="ms-3 w-100">
                       <h6 class="mb-0 ">Emma Watson Bni</h6>
@@ -69,7 +69,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/02.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/02.png')}}"
                         alt="">
                     </div>
                     <div class="ms-3 w-100">
@@ -83,7 +83,7 @@
                 </a>
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
-                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/03.png')); ?>"
+                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/03.png')}}"
                       alt="">
                     <div class="ms-3 w-100">
                       <h6 class="mb-0 ">Two customer is left</h6>
@@ -96,7 +96,7 @@
                 </a>
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
-                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/04.png')); ?>"
+                    <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/04.png')}}"
                       alt="">
                     <div class="w-100 ms-3">
                       <h6 class="mb-0 ">New Mail from Fenny</h6>
@@ -135,7 +135,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex  align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/01.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/01.png')}}"
                         alt="">
                     </div>
                     <div class=" w-100 ms-3">
@@ -147,7 +147,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/02.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/02.png')}}"
                         alt="">
                     </div>
                     <div class="ms-3">
@@ -159,7 +159,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/03.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/03.png')}}"
                         alt="">
                     </div>
                     <div class="ms-3">
@@ -171,7 +171,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/04.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/04.png')}}"
                         alt="">
                     </div>
                     <div class="ms-3">
@@ -183,7 +183,7 @@
                 <a href="#" class="iq-sub-card">
                   <div class="d-flex align-items-center">
                     <div class="">
-                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="<?php echo e(asset('images/shapes/05.png')); ?>"
+                      <img class="avatar-40 rounded-pill bg-soft-primary p-1" src="{{asset('images/shapes/05.png')}}"
                         alt="">
                     </div>
                     <div class="ms-3">
@@ -199,10 +199,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link py-0 d-flex align-items-center" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo e(auth()->user()->photo ?? asset('images/avatars/01.png')); ?>" alt="User-Profile"
+            <img src="{{ auth()->user()->photo ?? asset('images/avatars/01.png') }}" alt="User-Profile"
               class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
             <div class="caption ms-3 d-none d-md-block ">
-              <h6 class="mb-0 caption-title"><?php echo e(auth()->user()->name ?? 'زائر'); ?></h6>
+              <h6 class="mb-0 caption-title">{{ auth()->user()->name ?? 'زائر' }}</h6>
               <p class="mb-0 caption-sub-title text-capitalize"></p>
             </div>
           </a>
@@ -213,26 +213,11 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <?php
-$__split = function ($name, $params = []) {
-    return [$name, $params];
-};
-[$__name, $__params] = $__split('auth.logout');
-
-$__html = app('livewire')->mount($__name, $__params, 'lw-239696957-0', $__slots ?? [], get_defined_vars());
-
-echo $__html;
-
-unset($__html);
-unset($__name);
-unset($__params);
-unset($__split);
-if (isset($__slots)) unset($__slots);
-?>
+              @livewire('auth.logout')
             </li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
-</nav><?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/_body_header.blade.php ENDPATH**/ ?>
+</nav>

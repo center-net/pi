@@ -6,7 +6,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="<?php echo e(route('admin.dashboard')); ?>">
+        <a class="nav-link" aria-current="page" href="{{route('admin.dashboard')}}">
             <i class="icon">
                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.4"
@@ -21,9 +21,9 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?php echo e((request()->is('admin/settings*'))?'':'collapsed'); ?>" data-bs-toggle="collapse"
+        <a class="nav-link {{ (request()->is('admin/settings*'))?'':'collapsed' }}" data-bs-toggle="collapse"
             href="#general-settings" role="button"
-            aria-expanded="<?php echo e((request()->is('admin/settings*'))?'true':'false'); ?>" aria-controls="general-settings">
+            aria-expanded="{{ (request()->is('admin/settings*'))?'true':'false' }}" aria-controls="general-settings">
             <i class="icon">
                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.4"
@@ -50,12 +50,11 @@
                 </svg>
             </i>
         </a>
-        <ul class="sub-nav collapse <?php echo e((request()->is('admin/settings*'))?'show':''); ?>" id="general-settings"
+        <ul class="sub-nav collapse {{ (request()->is('admin/settings*'))?'show':'' }}" id="general-settings"
             data-bs-parent="#sidebar">
-            <?php if(auth()->user()->hasPermission('browse_settings')): ?>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/settings/settings*'))?'active':''); ?>"
-                    href="<?php echo e(route('admin.settings')); ?>">
+                <a class="nav-link {{ (request()->is('admin/settings/settings*'))?'active':'' }}"
+                    href="{{route('admin.settings')}}">
                     <i class="sidenav-mini-icon"> 
                         <svg  width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -75,11 +74,9 @@
                     <span class="item-name"> إعدادات الموقع </span>
                 </a>
             </li>
-        <?php endif; ?> 
-           
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/settings/users*'))?'active':''); ?>"
-                    href="<?php echo e(route('admin.users')); ?>">
+                <a class="nav-link {{ (request()->is('admin/settings/users*'))?'active':'' }}"
+                    href="{{route('admin.users')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -125,8 +122,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/settings/permissions*'))?'active':''); ?>"
-                    href="<?php echo e(route('admin.permissions')); ?>">
+                <a class="nav-link {{ (request()->is('admin/settings/permissions*'))?'active':'' }}"
+                    href="{{route('admin.permissions')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -172,8 +169,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/settings/main_categories*'))?'active':''); ?>"
-                    href="<?php echo e(route('admin.main_categories')); ?>">
+                <a class="nav-link {{ (request()->is('admin/settings/main_categories*'))?'active':'' }}"
+                    href="{{route('admin.main_categories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -219,8 +216,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/settings/subcategories*'))?'active':''); ?>"
-                    href="<?php echo e(route('admin.subcategories')); ?>">
+                <a class="nav-link {{ (request()->is('admin/settings/subcategories*'))?'active':'' }}"
+                    href="{{route('admin.subcategories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -268,8 +265,8 @@
         </ul>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?php echo e((request()->is('admin/stores*'))?'':'collapsed'); ?>" data-bs-toggle="collapse"
-            href="#stores" role="button" aria-expanded="<?php echo e((request()->is('admin/stores*'))?'true':'false'); ?>"
+        <a class="nav-link {{ (request()->is('admin/stores*'))?'':'collapsed' }}" data-bs-toggle="collapse"
+            href="#stores" role="button" aria-expanded="{{ (request()->is('admin/stores*'))?'true':'false' }}"
             aria-controls="stores">
             <i class="icon">
                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -295,11 +292,11 @@
                 </svg>
             </i>
         </a>
-        <ul class="sub-nav collapse <?php echo e((request()->is('admin/stores*'))?'show':''); ?>" id="stores"
+        <ul class="sub-nav collapse {{ (request()->is('admin/stores*'))?'show':'' }}" id="stores"
             data-bs-parent="#sidebar">
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/stores/users*'))?'active':''); ?>"
-                    href="<?php echo e(route('stores.users')); ?>">
+                <a class="nav-link {{ (request()->is('admin/stores/users*'))?'active':'' }}"
+                    href="{{route('stores.users')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -345,8 +342,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/stores/stores*'))?'active':''); ?>"
-                    href="<?php echo e(route('stores.stores')); ?>">
+                <a class="nav-link {{ (request()->is('admin/stores/stores*'))?'active':'' }}"
+                    href="{{route('stores.stores')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -392,8 +389,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/stores/categories*'))?'active':''); ?>"
-                    href="<?php echo e(route('stores.categories')); ?>">
+                <a class="nav-link {{ (request()->is('admin/stores/categories*'))?'active':'' }}"
+                    href="{{route('stores.categories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -439,8 +436,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/stores/products*'))?'active':''); ?>"
-                    href="<?php echo e(route('stores.products')); ?>">
+                <a class="nav-link {{ (request()->is('admin/stores/products*'))?'active':'' }}"
+                    href="{{route('stores.products')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -486,8 +483,8 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link <?php echo e((request()->is('admin/stores/orders*'))?'active':''); ?>"
-                    href="<?php echo e(route('stores.orders')); ?>">
+                <a class="nav-link {{ (request()->is('admin/stores/orders*'))?'active':'' }}"
+                    href="{{route('stores.orders')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -534,48 +531,5 @@
             </li>
         </ul>
     </li>
-    <li class="nav-item">
-        <a class="nav-link " data-bs-toggle="collapse" href="#general-settings1" role="button" aria-expanded="false"
-            aria-controls="general-settings">
-            <i class="icon">
-                <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4"
-                        d="M10.0833 15.958H3.50777C2.67555 15.958 2 16.6217 2 17.4393C2 18.2559 2.67555 18.9207 3.50777 18.9207H10.0833C10.9155 18.9207 11.5911 18.2559 11.5911 17.4393C11.5911 16.6217 10.9155 15.958 10.0833 15.958Z"
-                        fill="currentColor"></path>
-                    <path opacity="0.4"
-                        d="M22.0001 6.37867C22.0001 5.56214 21.3246 4.89844 20.4934 4.89844H13.9179C13.0857 4.89844 12.4102 5.56214 12.4102 6.37867C12.4102 7.1963 13.0857 7.86 13.9179 7.86H20.4934C21.3246 7.86 22.0001 7.1963 22.0001 6.37867Z"
-                        fill="currentColor"></path>
-                    <path
-                        d="M8.87774 6.37856C8.87774 8.24523 7.33886 9.75821 5.43887 9.75821C3.53999 9.75821 2 8.24523 2 6.37856C2 4.51298 3.53999 3 5.43887 3C7.33886 3 8.87774 4.51298 8.87774 6.37856Z"
-                        fill="currentColor"></path>
-                    <path
-                        d="M21.9998 17.3992C21.9998 19.2648 20.4609 20.7777 18.5609 20.7777C16.6621 20.7777 15.1221 19.2648 15.1221 17.3992C15.1221 15.5325 16.6621 14.0195 18.5609 14.0195C20.4609 14.0195 21.9998 15.5325 21.9998 17.3992Z"
-                        fill="currentColor"></path>
-                </svg>
-            </i>
-            <span class="item-name">Menu Style</span>
-            <i class="right-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </i>
-        </a>
-        <ul class="sub-nav collapse" id="general-settings1" data-bs-parent="#sidebar">
-            <li class="nav-item ">
-                <a class="nav-link " href="#">
-                    <i class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
-                            <g>
-                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                            </g>
-                        </svg>
-                    </i>
-                    <i class="sidenav-mini-icon"> H </i>
-                    <span class="item-name"> Horizontal </span>
-                </a>
-            </li>
-        </ul>
-    </li>
 
-</ul><?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/vertical-nav.blade.php ENDPATH**/ ?>
+</ul>

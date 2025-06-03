@@ -1,8 +1,8 @@
 <aside class="sidebar sidebar-default navs-rounded-all sidebar-base navs-pill-all">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
-        <a href="<?php echo e(route('admin.dashboard')); ?>" class="navbar-brand">
-            <img width="30" height="30" src="<?php echo e(asset('uplods/admin/settings/' .$settings->logo)); ?>" alt="">
-            <h4 class="logo-title"><?php echo e($settings->name); ?></h4>
+        <a href="{{route('admin.dashboard')}}" class="navbar-brand">
+            <img width="30" height="30" src="{{ asset('uplods/admin/settings/' .$settings->logo)}}" alt="">
+            <h4 class="logo-title">{{$settings->name}}</h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
@@ -15,9 +15,8 @@
     </div>
     <div class="sidebar-body pt-0 data-scrollbar">
         <div class="sidebar-list" id="sidebar">
-            <?php echo $__env->make('partials.dashboard.'.(Auth::user()->can('administrator') ? 'vertical-nav' : 'merchants-nav'), \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            @include('partials.dashboard.'.(Auth::user()->can('administrator') ? 'vertical-nav' : 'merchants-nav'))
         </div>
     </div>
     <div class="sidebar-footer"></div>
 </aside>
-<?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/_body_sidebar.blade.php ENDPATH**/ ?>

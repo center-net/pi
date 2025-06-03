@@ -1,23 +1,24 @@
 
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="<?php echo e(asset('dashboard/images/favicon.ico')); ?>" />
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/libs.min.css')); ?>">
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/hope-ui.css?v=1.1.0')); ?>">
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/custom.css?v=1.1.0')); ?>">
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/dark.css?v=1.1.0')); ?>">
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/rtl.css?v=1.1.0')); ?>">
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/css/customizer.css?v=1.1.0')); ?>">
+
+<link rel="shortcut icon" href="<?php echo e(asset('uplods/admin/settings/' .$settings->icon)); ?>" />
+<link rel="stylesheet" href="<?php echo e(asset('css/libs.min.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/hope-ui.css?v=1.1.0')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/custom.css?v=1.1.0')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/dark.css?v=1.1.0')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/rtl.css?v=1.1.0')); ?>">
+<link rel="stylesheet" href="<?php echo e(asset('css/customizer.css?v=1.1.0')); ?>">
 
 <!-- Fullcalender CSS -->
 <link rel="stylesheet" href="<?php echo e(asset('vendor/flatpickr/dist/flatpickr.min.css')); ?>">
-<link rel='stylesheet' href="<?php echo e(asset('dashboard/vendor/fullcalendar/core/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('dashboard/vendor/fullcalendar/daygrid/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('dashboard/vendor/fullcalendar/timegrid/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('dashboard/vendor/fullcalendar/list/main.css')); ?>" />
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/vendor/Leaflet/leaflet.css')); ?>" />
+<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/core/main.css')); ?>" />
+<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/daygrid/main.css')); ?>" />
+<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/timegrid/main.css')); ?>" />
+<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/list/main.css')); ?>" />
+<link rel="stylesheet" href="<?php echo e(asset('vendor/Leaflet/leaflet.css')); ?>" />
 
-<link rel="stylesheet" href="<?php echo e(asset('dashboard/vendor/aos/dist/aos.css')); ?>" />
+<link rel="stylesheet" href="<?php echo e(asset('vendor/aos/dist/aos.css')); ?>" />
 <style>
     th.hide-search input{
        display: none;
