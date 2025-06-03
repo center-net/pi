@@ -6,6 +6,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+</br>
+cd /var/www/pi </br>
+git pull origin main </br>
+composer install --no-dev --optimize-autoloader </br>
+php artisan migrate --force </br>
+php artisan config:cache </br>
+php artisan route:cache </br>
+php artisan view:cache </br>
+sudo chown -R www-data:www-data . </br>
 
 ## About Laravel
 
