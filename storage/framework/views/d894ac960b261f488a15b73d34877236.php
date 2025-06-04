@@ -19,47 +19,47 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($users as $user)
-                    @if (in_array($user->role->key, ['admin','supervisor','moderator']))
+                    <!--[if BLOCK]><![endif]--><?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <!--[if BLOCK]><![endif]--><?php if(in_array($user->role->key, ['admin','supervisor','moderator'])): ?>
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->name }}</h6>
+                                    <h6><?php echo e($user->name); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->country->name }}</h6>
+                                    <h6><?php echo e($user->country->name); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->user_id  ?? $user->referrals_count  }}</h6>
+                                    <h6><?php echo e($user->user_id  ?? $user->referrals_count); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->email }}</h6>
+                                    <h6><?php echo e($user->email); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->mobile }}</h6>
+                                    <h6><?php echo e($user->mobile); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->role->name }}</h6>
+                                    <h6><?php echo e($user->role->name); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6>{{ $user->last_seen  ? \Carbon\Carbon::parse($user->last_seen)->diffForHumans()  :'لم يقم بالدخول' }}</h6>
+                                    <h6><?php echo e($user->last_seen  ? \Carbon\Carbon::parse($user->last_seen)->diffForHumans()  :'لم يقم بالدخول'); ?></h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
-                                    @can('update', $user)
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $user)): ?>
                                     <a class="btn btn-sm btn-icon btn-warning" data-toggle="tooltip"
                                     data-placement="top" title="" data-original-title="Edit" href="#">
                                     <span class="btn-inner">
@@ -79,7 +79,7 @@
                                         </svg>
                                     </span>
                                 </a>
-                                @endcan
+                                <?php endif; ?>
                                     <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-placement="top"
                                         title="" data-original-title="Delete" href="#">
                                         <span class="btn-inner">
@@ -101,12 +101,13 @@
                                 </div>
                             </td>
                         </tr>
-                    @endif
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                         
-                    @empty
-                    @endforelse
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                     </tbody>
             </table>
         </div>
     </div>
 </div>
+<?php /**PATH C:\laragon\www\pi\resources\views/dashboards/users/index.blade.php ENDPATH**/ ?>

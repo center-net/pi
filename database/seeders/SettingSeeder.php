@@ -17,6 +17,8 @@ class SettingSeeder extends Seeder
             'name' => 'PI',
             'phone' => '0566907902',
             'address' => 'فلسطين',
+            'icon' => 'icon.jpeg',
+            'logo' => 'logo.jpeg',
         ]);
     }
 }
