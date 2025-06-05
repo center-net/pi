@@ -24,7 +24,6 @@ class UserSeeder extends Seeder
         $country = Country::where('code','ps')->first()->id;
         $province = Province::where('country_id', $country)->first()->id;
         User::firstOrCreate([
-            'name'              => 'المسؤول',
             'username'          => 'admin',
             'email'             => 'admin@admin.com',
             'mobile'             => '0566907902',
@@ -39,7 +38,6 @@ class UserSeeder extends Seeder
         
         $role_id = Role::where('key','supervisor')->first()->id;
         User::firstOrCreate([
-            'name'              => 'المشرف',
             'username'          => 'supervisor',
             'email'             => 'supervisor@admin.com',
             'mobile'             => '0566907903',
@@ -54,7 +52,6 @@ class UserSeeder extends Seeder
 
         $role_id = Role::where('key','moderator')->first()->id;
         User::firstOrCreate([
-            'name'              => 'مراقب',
             'username'          => 'moderator',
             'email'             => 'moderator@admin.com',
             'mobile'             => '0566907904',
@@ -69,7 +66,6 @@ class UserSeeder extends Seeder
         
         $role_id = Role::where('key','vendor')->first()->id;
         User::firstOrCreate([
-            'name'              => 'تاجر',
             'username'          => 'vendor',
             'email'             => 'vendor@admin.com',
             'mobile'             => '0566907905',
@@ -84,7 +80,6 @@ class UserSeeder extends Seeder
 
         $role_id = Role::where('key','customer')->first()->id;
         User::firstOrCreate([
-            'name'              => 'زبون',
             'username'          => 'customer',
             'email'             => 'customer@admin.com',
             'mobile'             => '0566907906',
@@ -99,7 +94,6 @@ class UserSeeder extends Seeder
 
         $role_id = Role::where('key','banned')->first()->id;
         User::firstOrCreate([
-            'name'              => 'محظور',
             'username'          => 'banned',
             'email'             => 'banned@admin.com',
             'mobile'             => '0566907907',

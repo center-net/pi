@@ -20,8 +20,7 @@ class Index extends Component
     public function render()
     {
         return view('dashboards.users.index',
-        ['users' => User::where('name', 'like', '%' . $this->search . '%')
-            ->orWhere('email', 'like', '%' . $this->search . '%')
+        ['users' => User::Where('email', 'like', '%' . $this->search . '%')
             ->orWhere('mobile', 'like', '%' . $this->search . '%')
             ->orWhereHas('country', function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');

@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
-class Setting extends Model
+class Setting extends Model implements TranslatableContract
 {
-    /** @use HasFactory<\Database\Factories\SettingFactory> */
-    use HasFactory;
+    use Translatable, HasFactory;
 
-    protected $fillable = ['logo', 'icon', 'name', 'address', 'email', 'phone', 'facebook', 'twitter', 'linkedin', 'instagram'];
+    public $translatedAttributes = ['name', 'address'];
+
+    protected $fillable = ['logo', 'icon',  'email', 'phone', 'facebook', 'twitter', 'linkedin', 'instagram'];
 
     const CACHE_KEY = 'site_settings';
 
