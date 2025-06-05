@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','الصلاحيات'); ?>
+<?php $__env->startSection('title',__('views.permissions')); ?>
 <?php $__env->startSection('content'); ?>
     <?php
 $__split = function ($name, $params = []) {

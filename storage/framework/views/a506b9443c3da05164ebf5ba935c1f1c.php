@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','الإدارة'); ?>
+<?php $__env->startSection('title',__('views.management')); ?>
 <?php $__env->startSection('content'); ?>
 
     <?php

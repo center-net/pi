@@ -1,7 +1,7 @@
 <div>
     <div class="card-header d-flex justify-content-between">
         <div class="header-title">
-            <h4 class="card-title">الصلحيات والادوار</h4>
+            <h4 class="card-title">{{ __('views.permissions') }}</h4>
         </div>
     </div>
     <div class="card-body p-0">
@@ -9,10 +9,10 @@
             <table id="basic-table" class="table table-striped mb-0" role="grid">
                 <thead>
                     <tr>
-                        <th>الإسم</th>
-                        <th> المفتاح</th>
-                        <th> اللون</th>
-                        <th>الإجراءات</th>
+                        <th>{{ __('views.name') }}</th>
+                        <th> {{ __('views.key') }}</th>
+                        <th> {{ __('views.color') }}</th>
+                        <th>{{ __('views.action') }}</th>
                     </tr>
                 </thead>
                 <tbody>

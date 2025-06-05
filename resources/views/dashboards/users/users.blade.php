@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.dashboard')
-@section('title','الإدارة')
+@section('title',__('views.management'))
 @section('content')
 
     @livewire('dashboards.users.index')

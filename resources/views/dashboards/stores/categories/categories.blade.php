@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.dashboard')
-@section('title','الأقسام')
+@section('title',__('views.categories'))
 @section('content')
     @livewire('dashboards.stores.categories.index')
 @endsection

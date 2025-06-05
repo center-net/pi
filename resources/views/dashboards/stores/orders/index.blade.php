@@ -1,7 +1,7 @@
 <div>
     <div class="card-header d-flex justify-content-between">
         <div class="header-title">
-            <h4 class="card-title">الطلبيات</h4>
+            <h4 class="card-title">{{ __('views.orders') }}</h4>
         </div>
     </div>
     <div class="card-body p-0">

@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','إعدادات الموقع'); ?>
+<?php $__env->startSection('title',__('views.site_settings')); ?>
 <?php $__env->startSection('content'); ?>
     <?php
 $__split = function ($name, $params = []) {

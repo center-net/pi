@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.dashboard')
-@section('title','إعدادات الموقع')
+@section('title',__('views.site_settings'))
 @section('content')
     @livewire('dashboards.settings.index')
 @endsection

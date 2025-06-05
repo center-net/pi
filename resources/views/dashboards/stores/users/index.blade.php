@@ -1,7 +1,7 @@
 <div>
     <div class="card-header d-flex justify-content-between">
         <div class="header-title">
-            <h4 class="card-title">التجار</h4>
+            <h4 class="card-title">{{ __('views.merchants') }}</h4>
         </div>
     </div>
     <div class="card-body p-0">
@@ -9,13 +9,13 @@
             <table id="basic-table" class="table table-striped mb-0" role="grid">
                 <thead>
                     <tr>
-                        <th>الإسم</th>
-                        <th>الإسم المرجعي</th>
-                        <th>البريد الالكتروني</th>
-                        <th>رقم الهاتف</th>
-                        <th>الدور</th>
-                        <th>أخر تسجيل</th>
-                        <th>الإجراءات</th>
+                        <th>{{ __('views.name') }}</th>
+                        <th>{{ __('views.ref_name') }}</th>
+                        <th>{{ __('views.email') }}</th>
+                        <th>{{ __('views.phone_number') }}</th>
+                        <th>{{ __('views.permissions') }}</th>
+                        <th>{{ __('views.last_login') }}</th>
+                        <th>{{ __('views.action') }}</th>
                     </tr>
                 </thead>
                 <tbody>

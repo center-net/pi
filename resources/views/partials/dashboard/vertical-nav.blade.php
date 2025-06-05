@@ -1,7 +1,7 @@
 <ul class="navbar-nav iq-main-menu" id="sidebar">
     <li class="nav-item static-item">
         <a class="nav-link static-item disabled" href="#" tabindex="-1">
-            <span class="default-icon">Home</span>
+            <span class="default-icon">{{ __('vertical-nav.home') }}</span>
             <span class="mini-icon">-</span>
         </a>
     </li>
@@ -17,13 +17,13 @@
                         fill="currentColor"></path>
                 </svg>
             </i>
-            <span class="item-name">الرئيسية</span>
+            <span class="item-name">{{ __('vertical-nav.home') }}</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{ (request()->is('admin/settings*'))?'':'collapsed' }}" data-bs-toggle="collapse"
+        <a class="nav-link {{ (request()->is('*admin/settings*'))?'':'collapsed' }}" data-bs-toggle="collapse"
             href="#general-settings" role="button"
-            aria-expanded="{{ (request()->is('admin/settings*'))?'true':'false' }}" aria-controls="general-settings">
+            aria-expanded="{{ (request()->is('*admin/settings*'))?'true':'false' }}" aria-controls="general-settings">
             <i class="icon">
                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.4"
@@ -42,7 +42,7 @@
                
             </i>
 
-            <span class="item-name"> إدارة الموقع</span>
+            <span class="item-name"> {{ __('vertical-nav.site_management') }}</span>
             <i class="right-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -50,11 +50,11 @@
                 </svg>
             </i>
         </a>
-        <ul class="sub-nav collapse {{ (request()->is('admin/settings*'))?'show':'' }}" id="general-settings"
+        <ul class="sub-nav collapse {{ (request()->is('*admin/settings*'))?'show':'' }}" id="general-settings"
             data-bs-parent="#sidebar">
             @if (auth()->user()->hasPermission('browse_settings'))
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/settings/settings*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/settings/settings*'))?'active':'' }}"
                     href="{{route('admin.settings')}}">
                     <i class="sidenav-mini-icon"> 
                         <svg  width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,13 +72,13 @@
                             <circle cx="12.1747" cy="11.8891" r="2.63616" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round"></circle>
                         </svg>
-                    <span class="item-name"> إعدادات الموقع </span>
+                    <span class="item-name">{{ __('vertical-nav.site_settings') }}</span>
                 </a>
             </li>
         @endif 
            
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/settings/users*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/settings/users*'))?'active':'' }}"
                     href="{{route('admin.users')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -121,11 +121,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الإدارة </span>
+                    <span class="item-name"> {{ __('vertical-nav.admin_panel') }} </span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/settings/permissions*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/settings/permissions*'))?'active':'' }}"
                     href="{{route('admin.permissions')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -168,11 +168,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الصلاحيات </span>
+                    <span class="item-name"> {{ __('vertical-nav.permissions') }} </span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/settings/main_categories*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/settings/main_categories*'))?'active':'' }}"
                     href="{{route('admin.main_categories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -215,11 +215,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الفئات الرئيسية </span>
+                    <span class="item-name"> {{ __('vertical-nav.main_categories') }}</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/settings/subcategories*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/settings/subcategories*'))?'active':'' }}"
                     href="{{route('admin.subcategories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -262,14 +262,14 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الفئات الفرعية </span>
+                    <span class="item-name"> {{ __('vertical-nav.sub_categories') }}</span>
                 </a>
             </li>
         </ul>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{ (request()->is('admin/stores*'))?'':'collapsed' }}" data-bs-toggle="collapse"
-            href="#stores" role="button" aria-expanded="{{ (request()->is('admin/stores*'))?'true':'false' }}"
+        <a class="nav-link {{ (request()->is('*admin/stores*'))?'':'collapsed' }}" data-bs-toggle="collapse"
+            href="#stores" role="button" aria-expanded="{{ (request()->is('*admin/stores*'))?'true':'false' }}"
             aria-controls="stores">
             <i class="icon">
                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -287,7 +287,7 @@
                         fill="currentColor"></path>
                 </svg>
             </i>
-            <span class="item-name"> إدارة المتاجر</span>
+            <span class="item-name">{{ __('vertical-nav.store_management') }}</span>
             <i class="right-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -295,10 +295,10 @@
                 </svg>
             </i>
         </a>
-        <ul class="sub-nav collapse {{ (request()->is('admin/stores*'))?'show':'' }}" id="stores"
+        <ul class="sub-nav collapse {{ (request()->is('*admin/stores*'))?'show':'' }}" id="stores"
             data-bs-parent="#sidebar">
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/stores/users*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/stores/users*'))?'active':'' }}"
                     href="{{route('stores.users')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -341,11 +341,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> التجار</span>
+                    <span class="item-name"> {{ __('vertical-nav.merchants') }}</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/stores/stores*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/stores/stores*'))?'active':'' }}"
                     href="{{route('stores.stores')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -388,11 +388,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> المتاجر </span>
+                    <span class="item-name"> {{ __('vertical-nav.stores') }} </span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/stores/categories*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/stores/categories*'))?'active':'' }}"
                     href="{{route('stores.categories')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -435,11 +435,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الأقسام </span>
+                    <span class="item-name"> {{ __('vertical-nav.categories') }} </span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/stores/products*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/stores/products*'))?'active':'' }}"
                     href="{{route('stores.products')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -482,11 +482,11 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> المنتجات</span>
+                    <span class="item-name"> {{ __('vertical-nav.products') }}</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link {{ (request()->is('admin/stores/orders*'))?'active':'' }}"
+                <a class="nav-link {{ (request()->is('*admin/stores/orders*'))?'active':'' }}"
                     href="{{route('stores.orders')}}">
                     <i class="sidenav-mini-icon"> <svg width="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -529,7 +529,7 @@
                             d="M3.32156 13.5127C2.21752 13.7297 1.49225 14.1719 1.19139 14.8167C0.936203 15.3453 0.936203 15.9586 1.19139 16.4872C1.65163 17.4851 3.13531 17.8066 3.71195 17.8885C3.83104 17.9065 3.92595 17.8038 3.91342 17.6832C3.61883 14.9167 5.9621 13.6046 6.56918 13.3029C6.59425 13.2885 6.59962 13.2677 6.59694 13.2542C6.59515 13.2452 6.5853 13.2317 6.5656 13.2299C5.25294 13.2047 3.84358 13.3848 3.32156 13.5127Z"
                             fill="currentColor"></path>
                     </svg>
-                    <span class="item-name"> الطلبيات</span>
+                    <span class="item-name"> {{ __('vertical-nav.orders') }}</span>
                 </a>
             </li>
         </ul>

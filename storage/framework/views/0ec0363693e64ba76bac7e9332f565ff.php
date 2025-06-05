@@ -1,7 +1,7 @@
 <div>
     <div class="card-header d-flex justify-content-between">
         <div class="header-title">
-            <h4 class="card-title">الصلحيات والادوار</h4>
+            <h4 class="card-title"><?php echo e(__('views.permissions')); ?></h4>
         </div>
     </div>
     <div class="card-body p-0">
@@ -9,10 +9,10 @@
             <table id="basic-table" class="table table-striped mb-0" role="grid">
                 <thead>
                     <tr>
-                        <th>الإسم</th>
-                        <th> المفتاح</th>
-                        <th> اللون</th>
-                        <th>الإجراءات</th>
+                        <th><?php echo e(__('views.name')); ?></th>
+                        <th> <?php echo e(__('views.key')); ?></th>
+                        <th> <?php echo e(__('views.color')); ?></th>
+                        <th><?php echo e(__('views.action')); ?></th>
                     </tr>
                 </thead>
                 <tbody>

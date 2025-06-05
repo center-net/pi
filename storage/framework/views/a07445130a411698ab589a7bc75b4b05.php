@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','التجار'); ?>
+<?php $__env->startSection('title',__('views.merchants')); ?>
 <?php $__env->startSection('content'); ?>
     <?php
 $__split = function ($name, $params = []) {
