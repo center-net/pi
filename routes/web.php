@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------------------------------------------------
@@ -12,26 +13,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | be assigned to the "web" middleware group. Make something great!
 |
 
-
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [
-        'localeSessionRedirect',
-        'localizationRedirect',
-        'localeViewPath'
-    ]
-], function () {
-
-    Route::get('/', App\Livewire\Home::class)->name('home');
-
-    // راوت Livewire أخرى
-    Route::get('/contact', App\Livewire\Contact::class)->name('contact');
-
-});
-
-
 */
 
 Route::group(
@@ -40,6 +21,9 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
         Route::get('/', function () {
             return view('welcome');
         });

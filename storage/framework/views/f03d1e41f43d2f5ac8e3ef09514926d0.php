@@ -1,4 +1,4 @@
-<?php $__env->startSection('title','الرئيسية'); ?>
+<?php $__env->startSection('title',__('views.home')); ?>
 <?php $__env->startSection('content'); ?>
     <?php
 $__split = function ($name, $params = []) {

@@ -38,7 +38,7 @@ class Login extends Component
                 'last_seen' => now()
             ]);
     
-            return redirect()->intended('/admin');
+            return redirect()->route('admin.dashboard');
         }
         Auth::logout();
         session()->invalidate();
