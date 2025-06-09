@@ -15,6 +15,7 @@ php artisan config:cache </br>
 php artisan route:cache </br>
 php artisan view:cache </br>
 sudo chown -R www-data:www-data . </br>
+php artisan optimize:clear  </br>
 
 ## About Laravel
 
