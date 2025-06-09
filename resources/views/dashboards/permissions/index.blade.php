@@ -6,7 +6,7 @@
     </div>
     <div class="card-body p-0">
         <div class="table-responsive mt-4">
-            <table id="basic-table" class="table table-striped mb-0" role="grid">
+            {{-- <table id="basic-table" class="table table-striped mb-0" role="grid">
                 <thead>
                     <tr>
                         <th>{{ __('views.name') }}</th>
@@ -78,7 +78,41 @@
                     @empty
                     @endforelse
                     </tbody>
-            </table>
+            </table> --}}
+
+            <div class="p-4">
+
+                {{-- اختيار الدور --}}
+                <label for="roleSelect">اختر الدور:</label>
+                <select wire:model="selectedRoleId" wire:change="loadRolePermissions($event.target.value)" id="roleSelect" class="form-control mb-3">
+                    <option value="">-- اختر --</option>
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                    @endforeach
+                </select>
+            
+                @if ($selectedRoleId)
+                    <h5>صلاحيات الدور:</h5>
+                    <ul>
+                        @foreach ($permissions as $permission)
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    wire:click="togglePermission({{ $permission->id }})" 
+                                    @if(in_array($permission->id, $rolePermissions)) checked @endif
+                                />
+                                {{ $permission->name }}
+                                @if(in_array($permission->id, $rolePermissions))
+                                    <button wire:click.prevent="deletePermissionFromRole({{ $permission->id }})" class="btn btn-sm btn-danger ml-2">حذف</button>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>اختر دورًا لعرض صلاحياته.</p>
+                @endif
+            
+            </div>
         </div>
     </div>
 </div>

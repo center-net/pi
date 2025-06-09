@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\RoleTranslation;
 
 class RoleSeeder extends Seeder
 {
@@ -15,40 +16,82 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         Role::firstOrCreate([
-            'name' => 'المسؤول',
             'key' => 'admin',
             'color' => 'bg-red-700 text-white',
         ]);
 
         Role::firstOrCreate([
-            'name' => 'المشرف',
             'key' => 'supervisor',
             'color' => 'bg-orange-600 text-white',
         ]);
 
         Role::firstOrCreate([
-            'name' => 'مراقب',
             'key' => 'moderator',
             'color' => 'bg-green-600 text-white',
         ]);
 
         Role::firstOrCreate([
-            'name' => 'تاجر',
             'key' => 'vendor',
             'color' => 'bg-gray-100 text-black',
         ]);
 
         Role::firstOrCreate([
-            'name' => 'زبون',
             'key' => 'customer',
             'color' => 'bg-gray-100 text-black',
         ]);
 
         Role::firstOrCreate([
-            'name' => 'محظور',
             'key' => 'banned',
             'color' => 'bg-gray-600 text-white',
         ]);
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 1,  'locale' => 'en'],
+            ['name' => 'admin']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 1,  'locale' => 'ar'],
+            ['name' => 'المسؤول']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 2,  'locale' => 'en'],
+            ['name' => 'supervisor']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 2,  'locale' => 'ar'],
+            ['name' => 'المشرف']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 3,  'locale' => 'en'],
+            ['name' => 'moderator']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 3,  'locale' => 'ar'],
+            ['name' => 'مراقب']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 4,  'locale' => 'en'],
+            ['name' => 'vendor']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 4,  'locale' => 'ar'],
+            ['name' => 'تاجر']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 5,  'locale' => 'en'],
+            ['name' => 'customer']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 5,  'locale' => 'ar'],
+            ['name' => 'زبون']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 6,  'locale' => 'en'],
+            ['name' => 'banned']
+        );
+        RoleTranslation::updateOrInsert(
+            ['role_id' => 6,  'locale' => 'ar'],
+            ['name' => 'محظور']
+        );
 
         $permission_administrator = Permission::where('key','!=','banned')->pluck('id')->toArray();
         $permission_vendor = Permission::where('key','!=','administrator')->pluck('id')->toArray();
