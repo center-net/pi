@@ -12,7 +12,7 @@
 <?php endif; ?>
 
 <!-- mapchart JavaScript -->
-<script src="<?php echo e(asset('vendor/Leaflet/leaflet.js')); ?> "></script>
+
 <script src="<?php echo e(asset('js/charts/vectore-chart.js')); ?>"></script>
 
 
@@ -27,7 +27,7 @@
 <script src="<?php echo e(asset('js/plugins/circle-progress.js')); ?>"></script>
 <?php if(in_array('animation',$assets ?? [])): ?>
 <!--aos javascript-->
-<script src="<?php echo e(asset('vendor/aos/dist/aos.js')); ?>"></script>
+
 <?php endif; ?>
 
 <?php if(in_array('calender',$assets ?? [])): ?>
@@ -37,7 +37,7 @@
 <script src="<?php echo e(asset('js/plugins/calender.js')); ?>"></script>
 <?php endif; ?>
 
-<script src="<?php echo e(asset('vendor/flatpickr/dist/flatpickr.min.js')); ?>"></script>
+
 <script src="<?php echo e(asset('js/plugins/flatpickr.js')); ?>" defer></script>
 
 
@@ -46,6 +46,6 @@
 <script src="<?php echo e(asset('js/plugins/prism.mini.js')); ?>"></script>
 
 <!-- Custom JavaScript -->
-<script src="<?php echo e(asset('js/hope-ui.js')); ?>"></script>
+
 <script src="<?php echo e(asset('js/modelview.js')); ?>"></script>
 <?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/_scripts.blade.php ENDPATH**/ ?>

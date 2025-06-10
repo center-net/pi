@@ -9,7 +9,7 @@
                         <h1><?php echo $__env->yieldContent('title'); ?></h1>
                     </div>
                     <div>
-                        <?php echo $__env->yieldContent('btn'); ?>
+                        <?php echo $__env->yieldContent('headerbtn'); ?>
                     </div>
                 </div>
             </div>

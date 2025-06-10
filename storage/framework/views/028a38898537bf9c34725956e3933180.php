@@ -1,7 +1,7 @@
 <div>
     <div class="card-header d-flex justify-content-between">
         <div class="header-title">
-            <h4 class="card-title"><?php echo e(__('views.main_categories')); ?> </h4>
+            <h4 class="card-title"><?php echo e(__('views.stores')); ?></h4>
         </div>
     </div>
     <div class="card-body p-0">
@@ -80,4 +80,4 @@
         </div>
     </div>
 </div>
-<?php /**PATH C:\laragon\www\pi\resources\views/dashboards/main-categories/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\laragon\www\pi\resources\views/dashboards/stores/stores/index.blade.php ENDPATH**/ ?>

@@ -11,6 +11,14 @@ class Index extends Component
     use WithPagination;
 
     public $search, $country;
+    // public $u;
+
+    // public function mount()
+    // {
+    //     $username = request('u'); // جلب قيمة u من الرابط
+    //     $this->u = User::where('username', $username)->first();
+    // }
+
 
     public function updatingSearch()
     {
@@ -22,15 +30,6 @@ class Index extends Component
         return view('dashboards.users.index',
         ['users' => User::Where('email', 'like', '%' . $this->search . '%')
             ->orWhere('mobile', 'like', '%' . $this->search . '%')
-            ->orWhereHas('country', function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->orWhereHas('role', function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->orWhereHas('province', function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
             ->when($this->country, function ($query) {
                 return $query->whereHas('country', function ($q) {
                     $q->where('id', $this->country);

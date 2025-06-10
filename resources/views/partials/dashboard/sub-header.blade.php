@@ -9,7 +9,7 @@
                         <h1>@yield('title')</h1>
                     </div>
                     <div>
-                        @yield('btn')
+                        @yield('headerbtn')
                     </div>
                 </div>
             </div>

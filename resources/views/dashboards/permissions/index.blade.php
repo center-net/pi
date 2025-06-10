@@ -6,7 +6,7 @@
     </div>
     <div class="card-body p-0">
         <div class="table-responsive mt-4">
-            {{-- <table id="basic-table" class="table table-striped mb-0" role="grid">
+            <table id="basic-table" class="table table-striped mb-0" role="grid">
                 <thead>
                     <tr>
                         <th>{{ __('views.name') }}</th>
@@ -30,7 +30,7 @@
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <h6><div class="{{ $role->color }}"></div>{{ $role->color }}</h6>
+                                    <h6>{{ $role->users->count()   }}</h6>
                                 </div>
                             </td>
                             <td>
@@ -78,11 +78,11 @@
                     @empty
                     @endforelse
                     </tbody>
-            </table> --}}
+            </table> 
 
-            <div class="p-4">
+            {{-- <div class="p-4">
 
-                {{-- اختيار الدور --}}
+                
                 <label for="roleSelect">اختر الدور:</label>
                 <select wire:model="selectedRoleId" wire:change="loadRolePermissions($event.target.value)" id="roleSelect" class="form-control mb-3">
                     <option value="">-- اختر --</option>
@@ -112,7 +112,8 @@
                     <p>اختر دورًا لعرض صلاحياته.</p>
                 @endif
             
-            </div>
+            </div> --}}
         </div>
     </div>
+    
 </div>

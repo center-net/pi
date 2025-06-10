@@ -16,14 +16,11 @@
 <link rel="stylesheet" href="<?php echo e(asset('css/customizer.css?v=1.1.0')); ?>">
 
 <!-- Fullcalender CSS -->
-<link rel="stylesheet" href="<?php echo e(asset('vendor/flatpickr/dist/flatpickr.min.css')); ?>">
-<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/core/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/daygrid/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/timegrid/main.css')); ?>" />
-<link rel='stylesheet' href="<?php echo e(asset('vendor/fullcalendar/list/main.css')); ?>" />
-<link rel="stylesheet" href="<?php echo e(asset('vendor/Leaflet/leaflet.css')); ?>" />
 
-<link rel="stylesheet" href="<?php echo e(asset('vendor/aos/dist/aos.css')); ?>" />
+
+
+
+
 <style>
     th.hide-search input{
        display: none;

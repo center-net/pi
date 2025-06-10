@@ -3,9 +3,10 @@
         <div class="header-title" >
             <input type="search" class="form-control" wire:model.live="search" placeholder="<?php echo e(__('views.search')); ?>...">        </div>
     </div>
+    
     <div class="card-body p-0">
         <div class="table-responsive mt-4">
-            <table id="basic-table" class="table table-striped mb-0" role="grid">
+            <table id="basic-table" class="table table-striped mb-0" >
                 <thead>
                     <tr>
                         <th><?php echo e(__('views.name')); ?></th>
@@ -32,8 +33,8 @@
                                     <h6><?php echo e($user->country->name); ?></h6>
                                 </div>
                             </td>
-                            <td>
-                                <div class="d-flex align-items-center">
+                            <td >
+                                <div >
                                     <h6><?php echo e($user->user_id  ?? $user->referrals_count); ?></h6>
                                 </div>
                             </td>

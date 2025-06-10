@@ -21,9 +21,14 @@ class Role extends Model implements TranslatableContract
         return $this->belongsToMany(Permission::class);
     }
 
-    public function user()
+    // public function user()
+    // {
+    //     return $this->hasMany(User::class);
+    // }
+
+    public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'role_id');
     }
 
     public function hasPermission($key)

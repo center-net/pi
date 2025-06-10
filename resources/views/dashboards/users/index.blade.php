@@ -3,9 +3,10 @@
         <div class="header-title" >
             <input type="search" class="form-control" wire:model.live="search" placeholder="{{ __('views.search') }}...">        </div>
     </div>
+    {{-- {{ $this->u ? $this->u->id : 'mm' }} --}}
     <div class="card-body p-0">
         <div class="table-responsive mt-4">
-            <table id="basic-table" class="table table-striped mb-0" role="grid">
+            <table id="basic-table" class="table table-striped mb-0" >
                 <thead>
                     <tr>
                         <th>{{ __('views.name') }}</th>
@@ -32,8 +33,8 @@
                                     <h6>{{ $user->country->name }}</h6>
                                 </div>
                             </td>
-                            <td>
-                                <div class="d-flex align-items-center">
+                            <td >
+                                <div >
                                     <h6>{{ $user->user_id  ?? $user->referrals_count  }}</h6>
                                 </div>
                             </td>

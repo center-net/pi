@@ -12,7 +12,7 @@
 @endif
 
 <!-- mapchart JavaScript -->
-<script src="{{asset('vendor/Leaflet/leaflet.js') }} "></script>
+{{-- <script src="{{asset('vendor/Leaflet/leaflet.js') }} "></script> --}}
 <script src="{{asset('js/charts/vectore-chart.js') }}"></script>
 
 
@@ -27,7 +27,7 @@
 <script src="{{asset('js/plugins/circle-progress.js') }}"></script>
 @if(in_array('animation',$assets ?? []))
 <!--aos javascript-->
-<script src="{{asset('vendor/aos/dist/aos.js')}}"></script>
+{{-- <script src="{{asset('vendor/aos/dist/aos.js')}}"></script> --}}
 @endif
 
 @if(in_array('calender',$assets ?? []))
@@ -41,7 +41,7 @@
 <script src="{{asset('js/plugins/calender.js')}}"></script>
 @endif
 
-<script src="{{ asset('vendor/flatpickr/dist/flatpickr.min.js') }}"></script>
+{{-- <script src="{{ asset('vendor/flatpickr/dist/flatpickr.min.js') }}"></script> --}}
 <script src="{{ asset('js/plugins/flatpickr.js') }}" defer></script>
 {{-- <script src="{{asset('vendor/vanillajs-datepicker/dist/js/datepicker-full.js')}}"></script> --}}
 
@@ -50,5 +50,5 @@
 <script src="{{asset('js/plugins/prism.mini.js')}}"></script>
 
 <!-- Custom JavaScript -->
-<script src="{{asset('js/hope-ui.js') }}"></script>
+{{-- <script src="{{asset('js/hope-ui.js') }}"></script> --}}
 <script src="{{asset('js/modelview.js')}}"></script>
