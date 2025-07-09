@@ -1,0 +1,32 @@
+<?php
+
+return [
+   'email' => 'Email',
+   'today_deals' => 'Today Deals',
+   'sign_in' => 'Sign in',
+   'register' => 'Register',
+   'or' => 'or',
+   'call_support' => 'Call customer services :',
+   'categories' => 'Categories',
+   'all_categories' => 'All Categories',
+   'home' => 'Home',
+   'shop_by_categories' => 'Shop By Categories',
+   'all_rights_reserved' => 'All Rights Reserved',
+   'copyright' => 'Copyright',
+   'search' => 'Search',
+   'cart' => 'Cart',
+   'items' => 'items',
+   'wishlist' => 'Wishlist',
+   'account' => 'Account',
+   'register_account' => 'Register Account',
+   'checkout' => 'Checkout',
+   'my_wishlists' => 'My Wishlists',
+   'language' => 'Language',
+   'close' => 'Close',
+   'product_added_to_favourite_success' => 'The product was added to the favourite list successfully',
+   'product_already_in_favourite' => 'This product was already added to the favourite list',
+   'login_to_customer_account' => 'Log in to your customer account',
+   'support' => 'Support',
+   'logout' => 'Logout',
+
+];

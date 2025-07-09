@@ -46,7 +46,7 @@ Route::group(
             return Route::post('/livewire/update', $handle);
         });
         Route::get('/', function () {
-            return view('welcome');
+            return view('front.home');
         });
         Route::view('/login', 'auth.loginform')->name('login');
         Route::view('/signup', 'auth.signupform')->name('signup');

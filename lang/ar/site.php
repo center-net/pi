@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'email' => 'البريد الإلكتروني',
+    'today_deals' => 'عروض اليوم',
+    'sign_in' => 'تسجيل الدخول',
+    'register' => 'إنشاء حساب',
+    'or' => 'أو',
+    'call_support' => 'اتصل بخدمة العملاء:',
+    'categories' => 'التصنيفات',
+    'all_categories' => 'كل التصنيفات',
+    'home' => 'الرئيسية',
+    'shop_by_categories' => 'تسوق حسب التصنيفات',
+    'all_rights_reserved' => 'جميع الحقوق محفوظة',
+    'copyright' => 'حقوق النشر',
+    'search' => 'بحث',
+    'cart' => 'سلة التسوق',
+    'items' => 'عناصر',
+    'wishlist' => 'المفضلة',
+    'account' => 'الحساب',
+    'register_account' => 'تسجيل حساب',
+    'checkout' => 'إتمام الشراء',
+    'my_wishlists' => 'قائمة الأمنيات',
+    'language' => 'اللغة',
+    'close' => 'إغلاق',
+    'product_added_to_favourite_success' => 'تم إضافة المنتج إلى قائمة المفضلة بنجاح',
+    'product_already_in_favourite' => 'تم إضافة هذا المنتج مسبقًا إلى قائمة المفضلة',
+    'login_to_customer_account' => 'تسجيل الدخول إلى حساب العميل الخاص بك',
+    'support' => 'الدعم',
+    'logout' => 'تسجيل الخروج',
+
+];
