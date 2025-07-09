@@ -16,8 +16,8 @@
     <meta name="keywords" content="">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo e(asset('assets/front/img/favicon.ico')); ?>?1531456858">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('assets/front/img/favicon.ico')); ?>?1531456858">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo e(asset('uplods/admin/settings/' . $settings->icon)); ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('uplods/admin/settings/' . $settings->icon)); ?>">
     <link href="<?php echo e(asset('assets/front/css/css.css')); ?>?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
     <link href="<?php echo e(asset('assets/front/css/css-1.css')); ?>?family=Oswald:300,400,500,600,700,900" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('assets/front/themes/vinova_savemart/assets/cache/theme-78026624.css')); ?>"
@@ -128,8 +128,8 @@
 <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up">
     <div class="content-boxpage col">
         <div class="box-header d-flex justify-content-between align-items-center">
-            <div class="title-box">Menu</div>
-            <div class="close-box">Close</div>
+            <div class="title-box"><?php echo e(__('site.menu')); ?></div>
+            <div class="close-box"><?php echo e(__('site.close')); ?></div>
         </div>
         <div class="box-content">
             <div id="_mobile_top_menu" class="js-top-menu"></div>
@@ -139,8 +139,8 @@
 <div id="mobile-blockcart" class="mobile-boxpage d-flex hidden-md-up">
     <div class="content-boxpage col">
         <div class="box-header d-flex justify-content-between align-items-center">
-            <div class="title-box">Cart</div>
-            <div class="close-box">Close</div>
+            <div class="title-box"><?php echo e(__('site.cart')); ?></div>
+            <div class="close-box"><?php echo e(__('site.close')); ?></div>
         </div>
         <div id="_mobile_cart" class="box-content"></div>
     </div>
@@ -148,9 +148,9 @@
 <div id="mobile-pageaccount" class="mobile-boxpage d-flex hidden-md-up" data-titlebox-parent="Account">
     <div class="content-boxpage col">
         <div class="box-header d-flex justify-content-between align-items-center">
-            <div class="back-box">Back</div>
-            <div class="title-box">Account</div>
-            <div class="close-box">Close</div>
+            <div class="back-box"><?php echo e(__('site.back')); ?></div>
+            <div class="title-box"><?php echo e(__('site.account')); ?></div>
+            <div class="close-box"><?php echo e(__('site.close')); ?></div>
         </div>
         <div class="box-content d-flex justify-content-center align-items-center text-center">
             <div>
@@ -158,26 +158,27 @@
                     <div class="account-list-content">
                         <div>
                             <a class="login" href="login-1.html" rel="nofollow" title="Log in to your customer account"><i
-                                    class="fa fa-sign-in"></i>Sign in</a>
+                                    class="fa fa-sign-in"></i><?php echo e(__('site.sign_in')); ?></a>
                         </div>
                         <div>
                             <a class="register" href="login-1.html" rel="nofollow" title="Register Account"><i
-                                    class="fa fa-user"></i>Register Account</a>
+                                    class="fa fa-user"></i><?php echo e(__('site.register_account')); ?></a>
                         </div>
                         <div>
                             <a class="check-out" href="cart.html" rel="nofollow" title="Checkout"><i
-                                    class="material-icons">check_circle</i>Checkout</a>
+                                    class="material-icons">check_circle</i><?php echo e(__('site.checkout')); ?></a>
                         </div>
                         <div class="link_wishlist">
                             <a href="login-2.html" title="My Wishlists">
-                                <i class="fa fa-heart"></i>My Wishlists
+                                <i class="fa fa-heart"></i><?php echo e(__('site.my_wishlists')); ?>
+
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="links-currency" data-target="#box-currency" data-titlebox="Currency"><span>Currency</span><i
                         class="zmdi zmdi-arrow-right"></i></div>
-                <div class="links-language" data-target="#box-language" data-titlebox="Language"><span>Language</span><i
+                <div class="links-language" data-target="#box-language" data-titlebox="Language"><span><?php echo e(__('site.language')); ?></span><i
                         class="zmdi zmdi-arrow-right"></i></div>
             </div>
         </div>
@@ -191,43 +192,26 @@
                     <a title="US Dollar" rel="nofollow"
                        href="index-2.htm?home=home_3&amp;SubmitCurrency=1&amp;id_currency=2">US Dollar: USD</a>
                 </div>
+
             </div>
         </div>
 
         <div id="box-language" class="box-content d-flex">
             <div class="w-100">
+
+                   <?php $__currentLoopData = LaravelLocalization::getSupportedLocales(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localeCode => $properties): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($localeCode != LaravelLocalization::setLocale()): ?>
                 <div class="item-language current">
-                    <a href="index.htm?home=home_3" class="d-flex align-items-center"><img class="img-fluid mr-2"
-                                                                                           src="../img/l/1.jpg"
-                                                                                           alt="English (English)"
-                                                                                           width="16" height="11"><span>English</span></a>
+                    <a rel="alternate" hreflang="<?php echo e($localeCode); ?>"
+                                               href="<?php echo e(LaravelLocalization::getLocalizedURL($localeCode, null, [], true)); ?>" class="d-flex align-items-center">
+                    <img class="img-fluid mr-2"
+                                            src="<?php echo e(asset('images/Flag/' . $properties['regional'] . '.png')); ?>"
+                                            alt="<?php echo e($properties['native']); ?>"
+                                            width="16" height="11"><span><?php echo e($properties['native']); ?></span></a>
                 </div>
-                <div class="item-language">
-                    <a href="http://demo.bestprestashoptheme.com/savemart/fr/?home=home_3"
-                       class="d-flex align-items-center"><img class="img-fluid mr-2" src="../img/l/2.jpg"
-                                                              alt="Français (French)" width="16" height="11"><span>Français</span></a>
-                </div>
-                <div class="item-language">
-                    <a href="http://demo.bestprestashoptheme.com/savemart/es/?home=home_3"
-                       class="d-flex align-items-center"><img class="img-fluid mr-2" src="../img/l/3.jpg"
-                                                              alt="Español (Spanish)" width="16" height="11"><span>Español</span></a>
-                </div>
-                <div class="item-language">
-                    <a href="http://demo.bestprestashoptheme.com/savemart/it/?home=home_3"
-                       class="d-flex align-items-center"><img class="img-fluid mr-2" src="../img/l/4.jpg"
-                                                              alt="Italiano (Italian)" width="16" height="11"><span>Italiano</span></a>
-                </div>
-                <div class="item-language">
-                    <a href="http://demo.bestprestashoptheme.com/savemart/pl/?home=home_3"
-                       class="d-flex align-items-center"><img class="img-fluid mr-2" src="../img/l/5.jpg"
-                                                              alt="Polski (Polish)" width="16"
-                                                              height="11"><span>Polski</span></a>
-                </div>
-                <div class="item-language">
-                    <a href="http://demo.bestprestashoptheme.com/savemart/ar/?home=home_3"
-                       class="d-flex align-items-center"><img class="img-fluid mr-2" src="../img/l/6.jpg"
-                                                              alt="اللغة العربية (Arabic)" width="16" height="11"><span>اللغة العربية</span></a>
-                </div>
+                               
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 
@@ -237,16 +221,16 @@
 
 <div id="stickymenu_bottom_mobile" class="d-flex align-items-center justify-content-center hidden-md-up text-center">
     <div class="stickymenu-item"><a href="http://demo.bestprestashoptheme.com/savemart/"><i
-                class="zmdi zmdi-home"></i><span>Home</span></a></div>
+                class="zmdi zmdi-home"></i><span><?php echo e(__('site.home')); ?></span></a></div>
     <div class="stickymenu-item"><a href="#" class="js-btn-search"><i
-                class="zmdi zmdi-search"></i><span>Search</span></a></div>
+                class="zmdi zmdi-search"></i><span><?php echo e(__('site.search')); ?></span></a></div>
     <div class="stickymenu-item">
         <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#mobile-blockcart"></div>
     </div>
-    <div class="stickymenu-item"><a href="login-2.html"><i class="zmdi zmdi-favorite-outline"></i><span>Wishlist</span></a>
+    <div class="stickymenu-item"><a href="login-2.html"><i class="zmdi zmdi-favorite-outline"></i><span><?php echo e(__('site.my_wishlists')); ?></span></a>
     </div>
     <div class="stickymenu-item"><a href="#" class="nov-toggle-page" data-target="#mobile-pageaccount"><i
-                class="zmdi zmdi-account-o"></i><span>Account</span></a></div>
+                class="zmdi zmdi-account-o"></i><span><?php echo e(__('site.account')); ?></span></a></div>
 </div>
 
 

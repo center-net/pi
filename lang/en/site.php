@@ -28,5 +28,6 @@ return [
    'login_to_customer_account' => 'Log in to your customer account',
    'support' => 'Support',
    'logout' => 'Logout',
+   'back' => 'Back',
 
 ];

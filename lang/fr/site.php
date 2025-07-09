@@ -28,5 +28,5 @@ return [
     'login_to_customer_account' => 'Connectez-vous à votre compte client',
     'support' => 'Assistance',
     'logout' => 'تسجيل الخروج',
-
+    'back' => 'Retour',
 ];
