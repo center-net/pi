@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('username')->unique()->index();
             $table->string('email')->unique();
             $table->string('mobile')->unique();
+            $table->foreignId('referrer_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('photo')->nullable();
             $table->string('password');
             $table->foreignId('country_id')->constrained('countries');
-            $table->foreignId('province_id')->constrained('provinces');
-            $table->foreignId('user_id')->nullable()->constrained('users','id')->onDelete('cascade');
+            $table->foreignId('city_id')->constrained('cities');
             $table->foreignId('role_id')->constrained('roles','id')->onDelete('cascade');
             $table->timestamp('last_seen')->nullable();
             $table->rememberToken();

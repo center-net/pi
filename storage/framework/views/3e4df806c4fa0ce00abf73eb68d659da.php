@@ -19,5 +19,4 @@
         </div>
     </div>
     <div class="sidebar-footer"></div>
-</aside>
-<?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/_body_sidebar.blade.php ENDPATH**/ ?>
+</aside><?php /**PATH C:\laragon\www\pi\resources\views/partials/dashboard/_body_sidebar.blade.php ENDPATH**/ ?>

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(CountrySeeder::class);
-        $this->call(ProvinceSeeder::class);
+        $this->call(CitySeeder::class);
         $this->call(UserSeeder::class);
         $this->call(UserTranslationSeeder::class);
     }

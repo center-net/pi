@@ -1,7 +1,7 @@
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
     <div class="container-fluid navbar-inner">
         <a href="<?php echo e(route('admin.dashboard')); ?>" class="navbar-brand">
-            <img width="30" height="30" src="<?php echo e(asset('uplods/admin/settings/' . $settings->logo)); ?>" alt="">
+            <img width="30" height="30" src="<?php echo e(asset('uploads/admin/settings/' . $settings->logo)); ?>" alt="">
             <h4 class="logo-title"><?php echo e($settings->name); ?></h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
@@ -75,7 +75,7 @@
                         <div class="card shadow-none m-0">
                             <div class="card-header d-flex justify-content-between bg-primary py-3">
                                 <div class="header-title">
-                                    <h5 class="mb-0 text-white">All Notifications</h5>
+                                    <h5 class="mb-0 text-white"><?php echo e(__('views.all_notifications')); ?></h5>
                                 </div>
                             </div>
                             <div class="card-body p-0">
@@ -154,7 +154,7 @@
                         <div class="card shadow-none m-0">
                             <div class="card-header d-flex justify-content-between bg-primary py-3">
                                 <div class="header-title">
-                                    <h5 class="mb-0 text-white">All Message</h5>
+                                    <h5 class="mb-0 text-white"><?php echo e(__('views.all_messages')); ?></h5>
                                 </div>
                             </div>
                             <div class="card-body p-0 ">
@@ -228,13 +228,13 @@
                         <img src="<?php echo e(auth()->user()->photo ?? asset('images/avatars/01.png')); ?>" alt="User-Profile"
                             class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                         <div class="caption ms-3 d-none d-md-block ">
-                            <h6 class="mb-0 caption-title"><?php echo e(auth()->user()->name ?? 'زائر'); ?></h6>
+                            <h6 class="mb-0 caption-title"><?php echo e(auth()->user()->name ?? __('views.visitor')); ?></h6>
                             <p class="mb-0 caption-sub-title text-capitalize"></p>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Privacy Setting</a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo e(__('views.profile')); ?></a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo e(__('views.privacy_setting')); ?></a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

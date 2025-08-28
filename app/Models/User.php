@@ -1,21 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 
 class User extends Authenticatable implements TranslatableContract
 {
-    use Translatable, HasFactory, Notifiable;
+    use Translatable;
+    use HasFactory;
+    use Notifiable;
 
-    public $translatedAttributes = ['name'];
+    /** @var string[] */
+    public $translatedAttributes = ['name', 'address'];
 
+    /** @var string[] */
     protected $fillable = [
         'email',
         'password',
@@ -23,26 +30,25 @@ class User extends Authenticatable implements TranslatableContract
         'username',
         'role_id',
         'last_seen',
-    ];
-    protected $dates = [
-        'last_seen',
-        'created_at',
-        'updated_at'
+        'country_id',
+        'city_id',
+        'referrer_id',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    /** @var array<int, string> */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /** @var string[] */
+    protected $dates = [
+        'last_seen',
+        'created_at',
+        'updated_at',
+    ];
+
     /**
-     * Get the attributes that should be cast.
-     *
      * @return array<string, string>
      */
     protected function casts(): array
@@ -53,55 +59,53 @@ class User extends Authenticatable implements TranslatableContract
         ];
     }
 
-    public function setUsernameAttribute($value)
+    public function setUsernameAttribute(string $value): void
     {
         $this->attributes['username'] = strtolower($value);
     }
 
-    public function findForPassport($username)
+    public function findForPassport(string $username): self
     {
         return $this->where('username', $username)->first();
     }
 
-    public function role()
+    public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
     }
 
-    public function referrer()
+    public function referrer(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(self::class, 'referrer_id');
     }
 
-    public function referrals()
+    public function referrals(): HasMany
     {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->hasMany(self::class, 'referrer_id');
     }
 
-    public function getReferralsCountAttribute()
+    public function getReferralsCountAttribute(): int
     {
         return $this->referrals()->count();
     }
 
-    public function hasPermission($key)
+    public function hasPermission(string $key): bool
     {
         return $this->role->permission->contains('key', $key);
     }
 
-    public function country()
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
 
-    public function province()
+    public function city(): BelongsTo
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(City::class);
     }
 
-    public function isOnline()
+    public function isOnline(): bool
     {
-        return Cache::has('user-is-online' . $this->id);
+        return Cache::has('user-is-online-' . $this->id);
     }
-
-    
 }

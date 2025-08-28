@@ -1,75 +1,77 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Permission extends Model implements TranslatableContract
 {
-    /** @use HasFactory<\Database\Factories\PermissionFactory> */
-    use Translatable, HasFactory;
+    use Translatable;
+    use HasFactory;
 
+    /** @var string[] */
     public $translatedAttributes = ['name'];
 
-    protected $fillable = [ 'key' , 'table_name'];
+    /** @var string[] */
+    protected $fillable = ['key', 'table_name'];
 
-    public function role()
+    public function role(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
     }
 
-
-    public static function generateFor($table_name)
+    public static function generateFor(string $tableName): void
     {
-        self::firstOrCreate(['key' => 'browse_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'read_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'edit_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'add_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'delete_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'restore_'.$table_name, 'table_name' => $table_name]);
-        self::firstOrCreate(['key' => 'forceDelete_'.$table_name, 'table_name' => $table_name]);
+        $permissions = [
+            'browse_' => 'Browse',
+            'read_' => 'Read',
+            'edit_' => 'Edit',
+            'add_' => 'Add',
+            'delete_' => 'Delete',
+            'restore_' => 'Restore',
+            'forceDelete_' => 'Force Delete',
+        ];
 
-        $idBrowse = Permission::where('key', 'browse_'.$table_name)->first();
-        $idRead = Permission::where('key', 'read_'.$table_name)->first();
-        $idEdit = Permission::where('key', 'edit_'.$table_name)->first();
-        $idAdd = Permission::where('key', 'add_'.$table_name)->first();
-        $idDelete = Permission::where('key', 'delete_'.$table_name)->first();
-        $idRestore = Permission::where('key', 'restore_'.$table_name)->first();
-        $idForce = Permission::where('key', 'forceDelete_'.$table_name)->first();
-           PermissionTranslation::updateOrInsert(['permission_id' => $idBrowse->id,  'locale' => 'en'],['name'=>'Browse '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idRead->id,  'locale' => 'en'],['name'=>'Read '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idEdit->id,  'locale' => 'en'],['name'=>'Edit '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idAdd->id,  'locale' => 'en'],['name'=>'Add '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idDelete->id,  'locale' => 'en'],['name'=>'Delete '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idRestore->id,  'locale' => 'en'],['name'=>'Restore '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idForce->id,  'locale' => 'en'],['name'=>'Force Delete '.$table_name]);
+        foreach ($permissions as $key => $name) {
+            $permission = self::firstOrCreate(['key' => $key . $tableName, 'table_name' => $tableName]);
+            PermissionTranslation::updateOrInsert(
+                ['permission_id' => $permission->id, 'locale' => 'en'],
+                ['name' => $name . ' ' . $tableName]
+            );
+        }
     }
 
-    public static function generateForar($table_name, $table_name_en)
+    public static function generateForAr(string $tableName, string $tableNameEn): void
     {
-        
-        $idBrowse = Permission::where('key', 'browse_'.$table_name_en)->first();
-        $idRead = Permission::where('key', 'read_'.$table_name_en)->first();
-        $idEdit = Permission::where('key', 'edit_'.$table_name_en)->first();
-        $idAdd = Permission::where('key', 'add_'.$table_name_en)->first();
-        $idDelete = Permission::where('key', 'delete_'.$table_name_en)->first();
-        $idRestore = Permission::where('key', 'restore_'.$table_name_en)->first();
-        $idForce = Permission::where('key', 'forceDelete_'.$table_name_en)->first();
-           PermissionTranslation::updateOrInsert(['permission_id' => $idBrowse->id,  'locale' => 'ar'],['name'=>'عرض '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idRead->id,  'locale' => 'ar'],['name'=>'قراءة '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idEdit->id,  'locale' => 'ar'],['name'=>'تعديل '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idAdd->id,  'locale' => 'ar'],['name'=>'اضافة '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idDelete->id,  'locale' => 'ar'],['name'=>'حذف '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idRestore->id,  'locale' => 'ar'],['name'=>'اعادة المحذوف '.$table_name]);
-           PermissionTranslation::updateOrInsert(['permission_id' => $idForce->id,  'locale' => 'ar'],['name'=>'حذف مؤقت'.$table_name]);
+        $permissions = [
+            'browse_' => 'عرض',
+            'read_' => 'قراءة',
+            'edit_' => 'تعديل',
+            'add_' => 'اضافة',
+            'delete_' => 'حذف',
+            'restore_' => 'اعادة المحذوف',
+            'forceDelete_' => 'حذف مؤقت',
+        ];
+
+        foreach ($permissions as $key => $name) {
+            $permission = self::where('key', $key . $tableNameEn)->first();
+            if ($permission) {
+                PermissionTranslation::updateOrInsert(
+                    ['permission_id' => $permission->id, 'locale' => 'ar'],
+                    ['name' => $name . ' ' . $tableName]
+                );
+            }
+        }
     }
 
-
-    public static function removeFrom($table_name)
+    public static function removeFrom(string $tableName): void
     {
-        self::where(['table_name' => $table_name])->delete();
+        self::where(['table_name' => $tableName])->delete();
     }
 }

@@ -1,42 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 
 class Setting extends Model implements TranslatableContract
 {
-    use Translatable, HasFactory;
+    use Translatable;
+    use HasFactory;
 
+    /** @var string */
+    public const CACHE_KEY = 'site_settings';
+
+    /** @var string[] */
     public $translatedAttributes = ['name', 'address'];
 
-    protected $fillable = ['logo', 'icon',  'email', 'phone', 'facebook', 'twitter', 'linkedin', 'instagram'];
+    /** @var string[] */
+    protected $fillable = ['logo', 'icon', 'email', 'phone', 'facebook', 'twitter', 'linkedin', 'instagram'];
 
-    const CACHE_KEY = 'site_settings';
-
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
-        // مسح الكاش عند أي تغيير في الإعدادات
-        static::saved(function () {
+        static::saved(static function () {
             Cache::forget(self::CACHE_KEY);
         });
 
-        static::deleted(function () {
+        static::deleted(static function () {
             Cache::forget(self::CACHE_KEY);
         });
     }
 
-   public static function getSettings()
+    public static function getSettings(): self
     {
-        foreach(self::all() as $settings){
-            return $settings;
-        }
-       
+        return Cache::rememberForever(self::CACHE_KEY, static function () {
+            return self::first() ?? new self();
+        });
     }
 }

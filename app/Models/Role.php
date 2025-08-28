@@ -1,44 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Role extends Model implements TranslatableContract
 {
-    /** @use HasFactory<\Database\Factories\RoleFactory> */
-    use Translatable, HasFactory;
+    use Translatable;
+    use HasFactory;
 
+    /** @var string[] */
     public $translatedAttributes = ['name'];
 
-    protected $fillable = ['key' , 'color'];
+    /** @var string[] */
+    protected $fillable = ['key', 'color'];
 
-    public function permission()
+    public function permission(): BelongsToMany
     {
         return $this->belongsToMany(Permission::class);
     }
 
-    // public function user()
-    // {
-    //     return $this->hasMany(User::class);
-    // }
-
-    public function users()
+    public function users(): HasMany
     {
         return $this->hasMany(User::class, 'role_id');
     }
 
-    public function hasPermission($key)
+    public function hasPermission(string $key): bool
     {
         return $this->permission->contains('key', $key);
     }
 
-    public function userTrashed()
+    public function userTrashed(): HasMany
     {
         return $this->hasMany(User::class)->onlyTrashed();
     }
-
 }

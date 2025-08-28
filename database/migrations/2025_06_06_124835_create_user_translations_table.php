@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('locale')->index();
             $table->string('name', 20)->nullable();
+            $table->string('address')->nullable();
             $table->unique(['user_id', 'locale']);
         });
     }
