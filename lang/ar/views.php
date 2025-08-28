@@ -60,4 +60,12 @@ return [
     'city' => 'المدينة',
     'select_city' => 'اختر المدينة',
     'users_management' => 'إدارة المستخدمين',
+    'permissions_management' => 'إدارة الصلاحيات',
+    'add_permission' => 'إضافة صلاحية',
+    'edit_permission' => 'تعديل صلاحية',
+    'no_permissions_found' => 'لا توجد صلاحيات',
+    'roles_management' => 'إدارة الأدوار',
+    'add_role' => 'إضافة دور',
+    'edit_role' => 'تعديل دور',
+    'no_roles_found' => 'لا توجد أدوار',
 ];

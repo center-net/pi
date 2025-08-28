@@ -54,6 +54,7 @@ Route::group(
             Route::view('/', 'dashboards.dashboard')->name('admin.dashboard');
             Route::view('/settings/users', 'dashboards.users.users')->name('admin.users');
             Route::view('/settings/permissions', 'dashboards.permissions.permissions')->name('admin.permissions');
+            Route::view('/settings/roles', 'dashboards.roles.roles')->name('admin.roles');
             Route::view('/settings/settings', 'dashboards.settings.settings')->name('admin.settings')->can('viewAny', \App\Models\Setting::class);
             Route::view('/settings/main_categories', 'dashboards.main-categories.main-categories')->name('admin.main_categories');
             Route::view('/settings/subcategories', 'dashboards.subcategories.subcategories')->name('admin.subcategories');

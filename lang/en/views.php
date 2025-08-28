@@ -60,4 +60,12 @@ return [
     'city' => 'City',
     'select_city' => 'Select City',
     'users_management' => 'Users Management',
+    'permissions_management' => 'Permissions Management',
+    'add_permission' => 'Add Permission',
+    'edit_permission' => 'Edit Permission',
+    'no_permissions_found' => 'No permissions found.',
+    'roles_management' => 'Roles Management',
+    'add_role' => 'Add Role',
+    'edit_role' => 'Edit Role',
+    'no_roles_found' => 'No roles found.',
 ];

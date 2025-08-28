@@ -1,10 +1,10 @@
 <div x-data="{ showEditModal: false }" @close-modal.window="showEditModal = false">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h3 class="mb-0"><?php echo e(__('views.permissions_management')); ?></h3>
+        <h3 class="mb-0"><?php echo e(__('views.roles_management')); ?></h3>
         <div class="d-flex align-items-center">
             <input type="search" class="form-control me-2" wire:model.live="search" placeholder="<?php echo e(__('views.search')); ?>...">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPermissionModal">
-                <?php echo e(__('views.add_permission')); ?>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRoleModal">
+                <?php echo e(__('views.add_role')); ?>
 
             </button>
         </div>
@@ -16,21 +16,25 @@
                     <tr>
                         <th><?php echo e(__('views.name')); ?></th>
                         <th><?php echo e(__('views.key')); ?></th>
+                        <th><?php echo e(__('views.color')); ?></th>
                         <th><?php echo e(__('views.action')); ?></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!--[if BLOCK]><![endif]--><?php $__empty_1 = true; $__currentLoopData = $permissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $permission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <!--[if BLOCK]><![endif]--><?php $__empty_1 = true; $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <tr>
                             <td>
-                                <h6><?php echo e($permission->name); ?></h6>
+                                <h6><?php echo e($role->name); ?></h6>
                             </td>
                             <td>
-                                <h6><?php echo e($permission->key); ?></h6>
+                                <h6><?php echo e($role->key); ?></h6>
+                            </td>
+                            <td>
+                                <span class="badge rounded-pill <?php echo e($role->color); ?>"><?php echo e($role->name); ?></span>
                             </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
-                                    <button type="button" class="btn btn-sm btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#editPermissionModal" wire:click="edit(<?php echo e($permission->id); ?>)">
+                                    <button type="button" class="btn btn-sm btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#editRoleModal" wire:click="edit(<?php echo e($role->id); ?>)">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +52,7 @@
                                             </svg>
                                         </span>
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-icon btn-danger" wire:click="delete(<?php echo e($permission->id); ?>)" wire:confirm="<?php echo e(__('views.confirm_delete')); ?>">
+                                    <button type="button" class="btn btn-sm btn-icon btn-danger" wire:click="delete(<?php echo e($role->id); ?>)" wire:confirm="<?php echo e(__('views.confirm_delete')); ?>">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -62,17 +66,18 @@
                                                     d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973"
                                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round"></path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="4">
                                 <div class="alert alert-info text-center" role="alert">
-                                    <?php echo e(__('views.no_permissions_found')); ?>
+                                    <?php echo e(__('views.no_roles_found')); ?>
 
                                 </div>
                             </td>
@@ -82,15 +87,15 @@
             </table>
         </div>
         <div class="mt-3">
-            <?php echo e($permissions->links()); ?>
+            <?php echo e($roles->links()); ?>
 
         </div>
     </div>
 
-    <!-- Add Permission Modal -->
+    <!-- Add Role Modal -->
     <?php if (isset($component)) { $__componentOriginalf5195e7fca34cd992a211fbb69930ea9 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf5195e7fca34cd992a211fbb69930ea9 = $attributes; } ?>
-<?php $component = App\View\Components\ModelComponent::resolve(['model' => 'addPermissionModal','title' => ''.e(__('views.add_permission')).'','submitName' => ''.e(__('views.save')).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\ModelComponent::resolve(['model' => 'addRoleModal','title' => ''.e(__('views.add_role')).'','submitName' => ''.e(__('views.save')).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('model-component'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -102,9 +107,9 @@
 $__split = function ($name, $params = []) {
     return [$name, $params];
 };
-[$__name, $__params] = $__split('dashboards.permissions.permission-form', []);
+[$__name, $__params] = $__split('dashboards.roles.role-form', []);
 
-$__html = app('livewire')->mount($__name, $__params, 'lw-3805421967-0', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'lw-4156302819-0', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -125,10 +130,10 @@ if (isset($__slots)) unset($__slots);
 <?php unset($__componentOriginalf5195e7fca34cd992a211fbb69930ea9); ?>
 <?php endif; ?>
 
-    <!-- Edit Permission Modal -->
+    <!-- Edit Role Modal -->
     <?php if (isset($component)) { $__componentOriginalf5195e7fca34cd992a211fbb69930ea9 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf5195e7fca34cd992a211fbb69930ea9 = $attributes; } ?>
-<?php $component = App\View\Components\ModelComponent::resolve(['model' => 'editPermissionModal','title' => ''.e(__('views.edit_permission')).'','submitName' => ''.e(__('views.save')).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\ModelComponent::resolve(['model' => 'editRoleModal','title' => ''.e(__('views.edit_role')).'','submitName' => ''.e(__('views.save')).''] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('model-component'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -136,14 +141,14 @@ if (isset($__slots)) unset($__slots);
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-        <!--[if BLOCK]><![endif]--><?php if($selectedPermission): ?>
+        <!--[if BLOCK]><![endif]--><?php if($selectedRole): ?>
             <?php
 $__split = function ($name, $params = []) {
     return [$name, $params];
 };
-[$__name, $__params] = $__split('dashboards.permissions.permission-form', ['permission' => $selectedPermission]);
+[$__name, $__params] = $__split('dashboards.roles.role-form', ['role' => $selectedRole]);
 
-$__html = app('livewire')->mount($__name, $__params, ''.e($selectedPermission->id).'', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, ''.e($selectedRole->id).'', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -167,7 +172,7 @@ if (isset($__slots)) unset($__slots);
 </div>
 
     <?php
-        $__scriptKey = '3805421967-0';
+        $__scriptKey = '4156302819-0';
         ob_start();
     ?>
     <script>
@@ -175,9 +180,9 @@ if (isset($__slots)) unset($__slots);
             init() {
                 this.$watch('showEditModal', value => {
                     if (value) {
-                        $('#editPermissionModal').modal('show');
+                        $('#editRoleModal').modal('show');
                     } else {
-                        $('#editPermissionModal').modal('hide');
+                        $('#editRoleModal').modal('hide');
                     }
                 });
             }
@@ -188,12 +193,12 @@ if (isset($__slots)) unset($__slots);
         });
 
         Livewire.on('close-modal', () => {
-            $('#addPermissionModal').modal('hide');
-            $('#editPermissionModal').modal('hide');
+            $('#addRoleModal').modal('hide');
+            $('#editRoleModal').modal('hide');
         });
 
         $(document).ready(function() {
-            $('#addPermissionModal, #editPermissionModal').on('hidden.bs.modal', function () {
+            $('#addRoleModal, #editRoleModal').on('hidden.bs.modal', function () {
                 Livewire.dispatch('reset-form');
             });
         });
@@ -203,4 +208,4 @@ if (isset($__slots)) unset($__slots);
 
         \Livewire\store($this)->push('scripts', $__output, $__scriptKey)
     ?>
-<?php /**PATH C:\laragon\www\pi\resources\views/dashboards/permissions/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\laragon\www\pi\resources\views/dashboards/roles/index.blade.php ENDPATH**/ ?>

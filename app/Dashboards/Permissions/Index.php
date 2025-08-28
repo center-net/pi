@@ -2,73 +2,49 @@
 
 namespace App\Dashboards\Permissions;
 
-use App\Models\Permission;
-use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Permission;
+use Livewire\Attributes\On;
 
 class Index extends Component
 {
     use WithPagination;
-    public $roles;
-    public $selectedRoleId = null;
-    public $rolePermissions = [];
-    public $allPermissions;
 
-    public $newPermissionId = null; // لإضافة صلاحية جديدة للدور
+    public $search;
+    public $selectedPermission;
 
-    public function mount()
+    public function updatingSearch()
     {
-        $this->roles = Role::all();
-        $this->allPermissions = Permission::all();
+        $this->resetPage();
     }
 
-    public function updatedSelectedRoleId($roleId)
+    public function edit(Permission $permission)
     {
-        $this->loadRolePermissions($roleId);
+        $this->selectedPermission = $permission;
+        $this->dispatch('open-modal', 'editPermissionModal');
     }
 
-    public function loadRolePermissions($roleId)
+    public function delete(Permission $permission)
     {
-        $role = Role::find($roleId);
-        if ($role) {
-            $this->rolePermissions = $role->permission->pluck('id')->toArray();
-        } else {
-            $this->rolePermissions = [];
-        }
+        $permission->translations()->delete();
+        $permission->delete();
+        session()->flash('message', 'Permission deleted successfully.');
     }
 
-    public function togglePermission($permissionId)
+    #[On('permission-saved')]
+    public function refreshPermissions()
     {
-        $role = Role::find($this->selectedRoleId);
-        if (!$role) return;
-
-        if (in_array($permissionId, $this->rolePermissions)) {
-            // إزالة صلاحية
-            $role->permissions()->detach($permissionId);
-            $this->rolePermissions = array_diff($this->rolePermissions, [$permissionId]);
-        } else {
-            // إضافة صلاحية
-            $role->permissions()->attach($permissionId);
-            $this->rolePermissions[] = $permissionId;
-        }
-    }
-
-    public function deletePermissionFromRole($permissionId)
-    {
-        $role = Role::find($this->selectedRoleId);
-        dd($role);
-        if (!$role) return;
-
-        $role->permissions()->detach($permissionId);
-        $this->rolePermissions = array_diff($this->rolePermissions, [$permissionId]);
+        $this->resetPage();
     }
 
     public function render()
     {
-        return view('dashboards.permissions.index', [
-            'roles' => $this->roles,
-            'permissions' => $this->allPermissions,
-        ]);
+        return view('dashboards.permissions.index',
+        ['permissions' => Permission::whereHas('translations', function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->orWhere('key', 'like', '%' . $this->search . '%')
+        ->paginate(10)]);
     }
 }
