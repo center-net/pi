@@ -68,4 +68,8 @@ return [
     'add_role' => 'Add Role',
     'edit_role' => 'Edit Role',
     'no_roles_found' => 'No roles found.',
+    'main_categories_management' => 'Main Categories Management',
+    'add_main_category' => 'Add Main Category',
+    'edit_main_category' => 'Edit Main Category',
+    'no_main_categories_found' => 'No main categories found.',
 ];

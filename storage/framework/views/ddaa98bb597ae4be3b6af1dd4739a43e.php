@@ -1,5 +1,7 @@
-<?php $__env->startSection('title',__('views.main_categories') ); ?>
+<?php $__env->startSection('title',__('views.main_categories_management')); ?>
+
 <?php $__env->startSection('content'); ?>
+
     <?php
 $__split = function ($name, $params = []) {
     return [$name, $params];
@@ -16,5 +18,6 @@ unset($__params);
 unset($__split);
 if (isset($__slots)) unset($__slots);
 ?>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.dashboard.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\pi\resources\views/dashboards/main-categories/main-categories.blade.php ENDPATH**/ ?>

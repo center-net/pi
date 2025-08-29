@@ -68,4 +68,8 @@ return [
     'add_role' => 'إضافة دور',
     'edit_role' => 'تعديل دور',
     'no_roles_found' => 'لا توجد أدوار',
+    'main_categories_management' => 'إدارة الفئات الرئيسية',
+    'add_main_category' => 'إضافة فئة رئيسية',
+    'edit_main_category' => 'تعديل فئة رئيسية',
+    'no_main_categories_found' => 'لا توجد فئات رئيسية.',
 ];
